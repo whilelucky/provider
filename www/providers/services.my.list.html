@@ -1,0 +1,24 @@
+<ion-view view-title="My Services">
+
+    <ion-nav-buttons side="right">
+        <button class="button">
+            Add
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content>
+
+        <div class="list card" ng-repeat="service in vm.myServicesList">
+
+            <div class="item item-avatar">
+                <img src="http://lorempixel.com/50/50">
+                <h2>{{service.business_name}}</h2>
+                <p>#14, 81st cross, Pipeline Road, Kumaraswamy Layout</p>
+                <p>Phone: 987654321</p>
+                <p>Rating: <i class"icon"></i></p>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

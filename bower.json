@@ -1,0 +1,19 @@
+{
+  "name": "provider",
+  "private": true,
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.0.0-beta.14"
+  },
+  "version": "0.0.0",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "authors": [
+    "Lakshya Ranganath"
+  ],
+  "license": "private",
+  "dependencies": {
+    "restangular": "~1.4.0"
+  }
+}

@@ -1,0 +1,61 @@
+<ion-view view-title="Profile">
+
+    <ion-nav-buttons side="right">
+        <button class="button">
+            Save
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content>
+
+        <div class="list">
+
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">First Name</span>
+                <input type="text" placeholder="John" ng-model="vm.user.first_name">
+            </label>
+
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Last Name</span>
+                <input type="text" placeholder="Suhr" ng-model="vm.user.last_name">
+            </label>
+
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Email</span>
+                <input type="text" placeholder="john@suhr.com" ng-model="vm.user.email">
+            </label>
+
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Date of Birth</span>
+                <input type="text" placeholder="dd/mm/yyyy" ng-model="vm.user.dob">
+            </label>
+
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Address</span>
+                <textarea placeholder="#123, 99th Cross, 32nd Street, Example Layout" ng-model="vm.user.address"></textarea>
+            </label>
+
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Mobile</span>
+                <input type="text" placeholder="+91 987654321" ng-model="vm.user.mobile">
+            </label>
+
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Landline</span>
+                <input type="text" placeholder="080 25717275" ng-model="vm.user.landline">
+            </label>
+
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">City</span>
+                <input type="text" placeholder="Bangalore" ng-model="vm.user.city">
+            </label>
+
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Zip/Pin Code</span>
+                <input type="text" placeholder="560095" ng-model="vm.user.zipcode">
+            </label>
+
+        </div>
+
+    </ion-content>
+</ion-view>
