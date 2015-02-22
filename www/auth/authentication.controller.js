@@ -36,6 +36,8 @@
             AuthenticationService.create(vm.user);
         }
 
+        $scope.$on('user.create', hideRegisterForm);
+
     }
 
 })();

@@ -47,6 +47,10 @@
                 .then(function (response) {
                     if(response.success) {
                         $rootScope.$broadcast('services.update');
+                        AlertsService.success(response.alert);
+                    }
+                    else {
+                        AlertsService.error(response.alert);
                     }
                 });
         }

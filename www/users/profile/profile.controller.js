@@ -10,6 +10,7 @@
 
         vm.user = {};
         vm.save = save;
+        vm.logout = logout;
 
         activate();
 
@@ -19,6 +20,10 @@
 
         function save () {
             AuthenticationService.update(vm.user);
+        }
+
+        function logout () {
+            AuthenticationService.logout();
         }
 
     }

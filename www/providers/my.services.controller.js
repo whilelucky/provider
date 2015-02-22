@@ -31,7 +31,7 @@
 
         function editService (service) {
             ServicesService.service = service;
-            $state.go('app.services.edit', {id: service.id});
+            $state.go('app.services.edit');
         }
 
         function deleteService (service) {

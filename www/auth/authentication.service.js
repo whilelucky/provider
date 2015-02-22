@@ -6,7 +6,7 @@
 
     function AuthenticationService ($state, $rootScope, Restangular, AlertsService) {
 
-        this.user = {id: "1"};
+        this.user = {};
         this.login = login;
         this.logout = logout;
         this.create = create;
@@ -30,16 +30,17 @@
         }
 
         function logout () {
-            _authenticationService.one('logout').get()
-                .then(function (response) {
-                    if(response.success) {
+//            _authenticationService.one('logout').get()
+//                .then(function (response) {
+//                    if(response.success) {
                         parent.user = {};
-                        $rootScope.$broadcast('user.loggedOut');
-                    }
-                    else {
-                        AlertsService.error(response.alert);
-                    }
-                })
+                        $state.go('app.login');
+                        AlertsService.success('Logged out');
+//                    }
+//                    else {
+//                        AlertsService.error(response.alert);
+//                    }
+//                })
         }
 
         function create (user) {
@@ -50,7 +51,8 @@
                 _authenticationService.all('users').post(user)
                     .then(function (response) {
                         if(response.success) {
-                            login(user);
+                            $rootScope.$broadcast('user.create');
+                            AlertsService.success(response.alert);
                         }
                         else {
                             AlertsService.error(response.alert);
@@ -78,7 +80,6 @@
             if( (toState.url !== 'login' && toState.url !== 'register') && _.isEmpty(parent.user)) {
                 event.preventDefault();
                 $state.go('app.login');
-                AlertsService.error('Please login to continue');
             }
 
             else if(toState.url === 'login'  && !(_.isEmpty(parent.user))) {

@@ -1,50 +1,50 @@
-<ion-view view-title="Provide a Service">
+<ion-view view-title="Edit Service">
 
     <ion-content>
 
-        <form ng-submit="vm.submit()">
+        <form ng-submit="vm.update()">
 
             <div class="list">
 
                 <label class="item item-input item-select">
                     <span class="input-label">Service Type</span>
-                    <select ng-model="vm.newService.service_type_id" ng-options="serviceType.id as serviceType.name for serviceType in vm.serviceTypeList">
+                    <select ng-model="vm.service.service_type_id" ng-options="serviceType.id as serviceType.name for serviceType in vm.serviceTypeList" value="vm.service.service_type_id">
                         <option value="">Choose</option>
                     </select>
                 </label>
 
                 <label class="item item-input item-floating-label">
                     <span class="input-label">Business Name</span>
-                    <input type="text" placeholder="Business Name" ng-model="vm.newService.business_name">
+                    <input type="text" placeholder="Business Name" ng-model="vm.service.business_name">
                 </label>
 
                 <label class="item item-input item-floating-label">
                     <span class="input-label">Business Mobile</span>
-                    <input type="text" placeholder="Business Mobile" ng-model="vm.newService.business_mobile">
+                    <input type="text" placeholder="Business Mobile" ng-model="vm.service.business_mobile">
                 </label>
 
                 <label class="item item-input item-floating-label">
                     <span class="input-label">Business Landline</span>
-                    <input type="text" placeholder="080 25717275" ng-model="vm.newService.business_landline">
+                    <input type="text" placeholder="080 25717275" ng-model="vm.service.business_landline">
                 </label>
 
                 <label class="item item-input item-floating-label">
                     <span class="input-label">Business Address</span>
-                    <textarea placeholder="Business Address" ng-model="vm.newService.business_address" rows="3"></textarea>
+                    <textarea placeholder="Business Address" ng-model="vm.service.business_address" rows="3"></textarea>
                 </label>
 
                 <label class="item item-input item-floating-label">
                     <span class="input-label">Business City</span>
-                    <input type="text" placeholder="Bangalore" ng-model="vm.newService.business_city">
+                    <input type="text" placeholder="Bangalore" ng-model="vm.service.business_city">
                 </label>
 
                 <label class="item item-input item-floating-label">
                     <span class="input-label">Zipcode/Pincode</span>
-                    <input type="text" placeholder="560095" ng-model="vm.newService.business_zipcode">
+                    <input type="text" placeholder="560095" ng-model="vm.service.business_zipcode">
                 </label>
 
                 <label class="item">
-                    <button class="button button-block button-positive" type="submit">Submit</button>
+                    <button class="button button-block button-positive" type="submit">Update</button>
                 </label>
 
             </div>

@@ -56,7 +56,13 @@
         .state('app.services.create', {
             url: '/create',
             templateUrl: 'providers/services.create.html',
-            controller: 'ServicesCreateController as vm'
+            controller: 'ServicesCreateEditController as vm'
+        })
+
+        .state('app.services.edit', {
+            url: '/edit',
+            templateUrl: 'providers/services.edit.html',
+            controller: 'ServicesCreateEditController as vm'
         })
 
         .state('app.services.show', {

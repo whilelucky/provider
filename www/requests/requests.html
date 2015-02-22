@@ -40,6 +40,7 @@
                         <h2>{{receivedRequest.user.first_name}} {{receivedRequest.user.last_name}}</h2>
                         <p>{{receivedRequest.user.address}}</p>
                         <p>{{receivedRequest.user.mobile}} | {{receivedRequest.user.landline}}</p>
+                        <p>{{receivedRequest.business_name}}</p>
                     </div>
                     <div class="button-bar">
                         <button ng-if="receivedRequest.status === 'accepted'" class="button button-small button-clear button-balanced">Accepted</button>
