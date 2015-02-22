@@ -4,12 +4,13 @@
     angular.module('provider')
         .controller('ServicesTypeListController', ServicesTypeListController);
 
-    function ServicesTypeListController ($stateParams, $state, ServicesService) {
+    function ServicesTypeListController ($scope, $stateParams, $state, ServicesService) {
 
         var vm = this;
 
         vm.serviceType = '';
         vm.servicesList = [];
+        vm.refresh = refresh;
         vm.showService = showService;
 
 
@@ -17,12 +18,15 @@
 
         function activate () {
             vm.serviceType = $stateParams.type;
-            // vm.servicesList = ServicesService.list().$object;
-            vm.servicesList = [
-                {'id': 1, 'business_name': 'Muthuraj Electricans'},
-                {'id': 2, 'business_name': 'Bobby Electricans'},
-                {'id': 3, 'business_name': 'Lolipop Electricans'}
-            ];
+            vm.servicesList = ServicesService.list(vm.serviceType).$object;
+        }
+
+        function refresh () {
+            ServicesService.list(vm.serviceType)
+                .then(function (services) {
+                    vm.servicesList = services;
+                    $scope.$broadcast('scroll.refreshComplete')
+                });
         }
 
         function showService (service) {

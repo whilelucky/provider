@@ -1,20 +1,20 @@
-<ion-view view-title="Explore Services">
+<ion-view view-title="Explore Services" hide-back-button="true">
     <ion-content>
 
-        <div class="list">
-            <label class="item item-input">
-                <i class="icon ion-search placeholder-icon"></i>
-                <input type="text" placeholder="Search" ng-model="searchText">
-            </label>
-        </div>
+        <!--<div class="list">-->
+            <!--<label class="item item-input">-->
+                <!--<i class="icon ion-search placeholder-icon"></i>-->
+                <!--<input type="text" placeholder="Search" ng-model="searchText">-->
+            <!--</label>-->
+        <!--</div>-->
 
-        <ion-list type="list-inset">
-            <ion-item class="item-icon-left" ng-repeat="type in vm.serviceTypes | filter:searchText" href="#/services/type/{{type.name}}">
-                <i class="icon {{type.icon}}"></i>
-                <h2>{{type.name}}</h2>
+        <div class="list list-inset">
+            <a class="item item-icon-left" ng-repeat="serviceType in vm.serviceTypes" href="#/services/type/{{serviceType.name}}">
+                <i class="icon {{serviceType.icon}}"></i>
+                <h2>{{serviceType.name}}</h2>
                 <p>Availabe: 188</p>
-            </ion-item>
-        </ion-list>
+            </a>
+        </div>
 
     </ion-content>
 </ion-view>

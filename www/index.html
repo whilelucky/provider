@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/angular-toastr/dist/angular-toastr.min.css"/>
     <link href="assets/css/custom.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -16,6 +17,7 @@
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/lodash/dist/lodash.min.js"></script>
     <script src="lib/restangular/dist/restangular.min.js"></script>
+    <script src="lib/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -26,18 +28,26 @@
 
     <!-- controllers -->
     <script src="app.controller.js"></script>
+    <script src="auth/authentication.controller.js"></script>
     <script src="explore/explore.controller.js"></script>
     <script src="providers/services.type.list.controller.js"></script>
     <script src="providers/services.show.controller.js"></script>
-    <script src="providers/services.my.list.controller.js"></script>
+    <script src="providers/services.create.controller.js"></script>
+    <script src="providers/my.services.controller.js"></script>
+    <script src="requests/requests.controller.js"></script>
     <script src="users/profile/profile.controller.js"></script>
 
     <!-- services -->
+    <script src="auth/authentication.service.js"></script>
+    <script src="explore/explore.service.js"></script>
+    <script src="requests/requests.service.js"></script>
     <script src="providers/services.service.js"></script>
+    <script src="reviews/reviews.service.js"></script>
+    <script src="alerts.service.js"></script>
 
-  </head>
+</head>
 
-  <body ng-app="provider">
-    <ion-nav-view></ion-nav-view>
-  </body>
+<body ng-app="provider">
+<ion-nav-view></ion-nav-view>
+</body>
 </html>

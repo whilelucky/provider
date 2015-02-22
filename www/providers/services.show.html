@@ -1,24 +1,43 @@
 <ion-view view-title="Service Details">
     <ion-content>
 
-    <div class="list card">
+    <div class="list">
 
         <div class="item item-avatar">
             <img src="http://lorempixel.com/50/50">
             <h2>{{vm.service.business_name}}</h2>
-            <p>Nine Inch Nails</p>
+            <p>{{vm.service.business_address}}</p>
+            <h2><i class="icon ion-star"></i><i class="icon ion-star"></i><i class="icon ion-star"></i><i class="icon ion-star"></i></h2>
         </div>
 
         <div class="item item-image">
-            <img src="http://lorempixel.com/100/100">
+            <ion-slide-box>
+                <ion-slide ng-repeat="serviceImage in vm.service.images">
+                    <img ng-src="serviceImage.image">
+                </ion-slide>
+            </ion-slide-box>
         </div>
 
-        <a class="item item-icon-left assertive" href="#">
-            <i class="icon ion-music-note"></i>
-            Start listening
-        </a>
+        <div class="button-bar">
+            <button ng-click="vm.sendRequest()" class="button button-balanced icon-left ion-star">Request</button>
+            <button ng-click="vm.showReviewForm()" class="button button-stable icon-left ion-flash">Leave a Review</button>
+        </div>
 
     </div>
+
+
+    <ion-list class="item-text-wrap">
+
+        <div class="item item-divider">
+            Reviews
+        </div>
+
+        <ion-item ng-repeat="review in vm.reviewsList">
+            <p><strong>{{review.user_name}} :</strong></p>
+            <p>{{review.description}}</p>
+        </ion-item>
+
+    </ion-list>
 
     </ion-content>
 </ion-view>

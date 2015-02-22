@@ -4,18 +4,17 @@
     angular.module('provider')
         .controller('ExploreController', ExploreController);
 
-    function ExploreController () {
+    function ExploreController (ExploreService) {
 
         var vm = this;
 
-        vm.serviceTypes = [
-            {'id': 1, 'name': 'Electrician', 'icon': 'ion-flash'},
-            {'id': 2, 'name': 'Plumber', 'icon': 'ion-wrench'},
-            {'id': 3, 'name': 'Painter', 'icon': 'ion-waterdrop'},
-            {'id': 4, 'name': 'Tailor', 'icon': 'ion-scissors'},
-            {'id': 5, 'name': 'Carpenter', 'icon': 'ion-hammer'}
-        ];
+        vm.serviceTypes = [];
 
+        activate();
+
+        function activate () {
+            vm.serviceTypes = ExploreService.list().$object;
+        }
 
     }
 

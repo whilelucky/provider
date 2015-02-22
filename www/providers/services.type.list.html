@@ -1,10 +1,14 @@
 <ion-view view-title="{{vm.serviceType}}">
     <ion-content>
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="vm.refresh()">
+        </ion-refresher>
 
         <div class="list">
             <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input type="text" placeholder="Filter" ng-model="searchText">
+                <input type="text" placeholder="Search" ng-model="searchText">
             </label>
         </div>
 
@@ -13,19 +17,19 @@
             <div class="item item-avatar" ng-click="vm.showService(service)">
                 <img src="http://lorempixel.com/50/50">
                 <h2>{{service.business_name}}</h2>
-                <p>#14, 81st cross, Pipeline Road, Kumaraswamy Layout</p>
-                <p>Phone: 987654321</p>
-                <p>Rating: <i class"icon"></i></p>
+                <p>{{service.business_address}}</p>
+                <p>{{service.business_mobile}} | {{service.business_landline}}</p>
+                <p>Rating: <i class="icon ion-star"></i></p>
             </div>
 
-            <!-- <div class="item tabs tabs-balanced tabs-icon-left tabs-icon-only">
-                <a class="tab-item active" href="#">
-                    <i class="icon ion-iphone"></i>
-                </a>
-                <a class="tab-item active" href="#">
-                    <i class="icon ion-chatbox"></i>
-                </a>
-            </div> -->
+            <!--<div class="item tabs tabs-balanced tabs-icon-left tabs-icon-only">-->
+                <!--<a class="tab-item active" href="#">-->
+                    <!--<i class="icon ion-iphone"></i>-->
+                <!--</a>-->
+                <!--<a class="tab-item active" href="#">-->
+                    <!--<i class="icon ion-chatbox"></i>-->
+                <!--</a>-->
+            <!--</div>-->
 
         </div>
 

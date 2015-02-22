@@ -1,0 +1,58 @@
+<ion-view title="Requests" ng-init="vm.refresh()">
+
+    <ion-tabs class="tabs-color-positive tabs-background-light tabs-icon-top tabs-top">
+
+        <ion-tab title="Sent" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline">
+            <ion-header-bar></ion-header-bar>
+            <ion-content>
+
+                <div class="list card" ng-repeat="sentRequest in vm.sentRequestsList">
+
+                    <div class="item item-avatar">
+                        <img src="http://lorempixel.com/50/50">
+                        <h2>{{sentRequest.service.business_name}}</h2>
+                        <p>{{sentRequest.service.user_name}}</p>
+                        <p>{{sentRequest.service.business_mobile}} | {{sentRequest.service.business_landline}}</p>
+                    </div>
+                    <div class="button-bar">
+                        <button ng-if="sentRequest.status === 'pending'" class="button button-small button-clear button-energized">Pending</button>
+                        <button ng-if="sentRequest.status === 'accepted'" class="button button-small button-clear button-balanced">Accepted</button>
+                        <button ng-if="sentRequest.status === 'declined'" class="button button-small button-clear button-assertive">Declined</button>
+                        <button class="button button-small button-assertive" ng-click="vm.cancelRequest(sentRequest)">Cancel</button>
+                    </div>
+
+                </div>
+
+            </ion-content>
+        </ion-tab>
+
+
+
+
+        <ion-tab title="Received" icon-on="ion-ios7-clock" icon-off="ion-ios7-clock-outline">
+            <ion-header-bar></ion-header-bar>
+            <ion-content>
+
+                <div class="list card" ng-repeat="receivedRequest in vm.receivedRequestsList">
+
+                    <div class="item item-avatar item-text-wrap">
+                        <img src="http://lorempixel.com/50/50">
+                        <h2>{{receivedRequest.user.first_name}} {{receivedRequest.user.last_name}}</h2>
+                        <p>{{receivedRequest.user.address}}</p>
+                        <p>{{receivedRequest.user.mobile}} | {{receivedRequest.user.landline}}</p>
+                    </div>
+                    <div class="button-bar">
+                        <button ng-if="receivedRequest.status === 'accepted'" class="button button-small button-clear button-balanced">Accepted</button>
+                        <button ng-hide="receivedRequest.status === 'accepted'" class="button button-small button-balanced" ng-click="vm.acceptRequest(receivedRequest)">Accept</button>
+                        <button ng-if="receivedRequest.status === 'declined'" class="button button-small button-clear button-assertive">Declined</button>
+                        <button ng-hide="receivedRequest.status === 'declined'" class="button button-small button-assertive" ng-click="vm.declineRequest(receivedRequest)">Decline</button>
+                    </div>
+
+                </div>
+
+            </ion-content>
+        </ion-tab>
+
+    </ion-tabs>
+
+ </ion-view>

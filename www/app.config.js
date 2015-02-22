@@ -4,9 +4,15 @@
     angular.module('provider')
         .config(config);
 
-    function config ($stateProvider, $urlRouterProvider, RestangularProvider) {
+    function config ($stateProvider, $urlRouterProvider, toastrConfig, RestangularProvider) {
 
-        RestangularProvider.setBaseUrl('http://localhost/provider-backend/public/api');
+        RestangularProvider.setBaseUrl('http://localhost/provider-backend/public');
+//        RestangularProvider.setBaseUrl('//provider.creativevortex.in/public');
+
+        angular.extend(toastrConfig, {
+            positionClass: 'toast-bottom-left'
+        });
+
 
         $stateProvider
 
@@ -15,6 +21,12 @@
             abstract: true,
             templateUrl: 'navigation/nav.html',
             controller: 'AppController as vm'
+        })
+
+        .state('app.login', {
+            url: 'login',
+            templateUrl: 'auth/login.html',
+            controller: 'AuthenticationController as vm'
         })
 
         .state('app.explore', {
@@ -37,8 +49,14 @@
 
         .state('app.services.my-services', {
             url: '/my-services',
-            templateUrl: 'providers/services.my.list.html',
-            controller: 'ServicesMyListController as vm'
+            templateUrl: 'providers/my.services.html',
+            controller: 'MyServicesController as vm'
+        })
+
+        .state('app.services.create', {
+            url: '/create',
+            templateUrl: 'providers/services.create.html',
+            controller: 'ServicesCreateController as vm'
         })
 
         .state('app.services.show', {
@@ -47,10 +65,12 @@
             controller: 'ServicesShowController as vm'
         })
 
-        .state('app.services.create', {
-            url: '/create',
-            templateUrl: 'providers/services.create.html',
-            controller: 'ServicesCreateController'
+
+
+        .state('app.requests', {
+            url: 'requests',
+            templateUrl: 'requests/requests.html',
+            controller: 'RequestsController as vm'
         })
 
         .state('app.profile', {
@@ -60,7 +80,7 @@
         });
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('explore');
+        $urlRouterProvider.otherwise('login');
     }
 
 })();

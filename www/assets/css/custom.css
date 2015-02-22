@@ -1,1 +1,14 @@
-/* Empty. Add your own CSS if you like */
+.card {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.list {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.list-inset {
+    padding-top: 1px;
+    padding-bottom: 1px;
+}

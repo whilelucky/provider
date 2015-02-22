@@ -1,54 +1,55 @@
-<ion-view view-title="Provide a new Service">
+<ion-view view-title="Provide a Service">
+
     <ion-content>
 
-        <div class="list">
+        <form ng-submit="vm.submit()">
 
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">First Name</span>
-                <input type="text" placeholder="John">
-            </label>
+            <div class="list">
 
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Last Name</span>
-                <input type="text" placeholder="Suhr">
-            </label>
+                <label class="item item-input item-select">
+                    <span class="input-label">Service Type</span>
+                    <select ng-model="vm.service.service_type_id" ng-options="serviceType.id as serviceType.name for serviceType in vm.serviceTypeList">
+                        <option value="">Choose</option>
+                    </select>
+                </label>
 
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Email</span>
-                <input type="text" placeholder="john@suhr.com">
-            </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Business Name</span>
+                    <input type="text" placeholder="John" ng-model="vm.service.business_name">
+                </label>
 
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Date of Birth</span>
-                <input type="text" placeholder="dd/mm/yyyy">
-            </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Business Mobile</span>
+                    <input type="text" placeholder="Business Mobile" ng-model="vm.service.business_mobile">
+                </label>
 
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Address</span>
-                <input type="text" placeholder="#123, 99th Cross, 32nd Street, Example Layout">
-            </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Business Landline</span>
+                    <input type="text" placeholder="080 25717275" ng-model="vm.service.business_landline">
+                </label>
 
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Mobile</span>
-                <input type="text" placeholder="+91 987654321">
-            </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Business Address</span>
+                    <textarea placeholder="Business Address" ng-model="vm.service.business_address" rows="3"></textarea>
+                </label>
 
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Landline</span>
-                <input type="text" placeholder="080 25717275">
-            </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Business City</span>
+                    <input type="text" placeholder="Bangalore" ng-model="vm.service.business_city">
+                </label>
 
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">City</span>
-                <input type="text" placeholder="Bangalore">
-            </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Zipcode/Pincode</span>
+                    <input type="text" placeholder="560095" ng-model="vm.service.business_zipcode">
+                </label>
 
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Zip/Pin Code</span>
-                <input type="text" placeholder="560095">
-            </label>
+                <label class="item">
+                    <button class="button button-block button-positive" type="submit">Submit</button>
+                </label>
 
-        </div>
+            </div>
+
+        </form>
 
     </ion-content>
 </ion-view>
