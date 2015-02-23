@@ -20,7 +20,10 @@
 
         function activate () {
             vm.service = ServicesService.service;
-            vm.reviewsList = ReviewsService.list().$object;
+            ReviewsService.list()
+                .then(function (reviewsList) {
+                    vm.reviewsList = reviewsList;
+                });
         }
 
         function sendRequest () {

@@ -17,8 +17,14 @@
         activate();
 
         function activate () {
-            vm.sentRequestsList = RequestsService.sentRequests().$object;
-            vm.receivedRequestsList = RequestsService.receivedRequests().$object;
+            RequestsService.sentRequests()
+                .then(function (sentRequestsList) {
+                    vm.sentRequestsList = sentRequestsList;
+                });
+            RequestsService.receivedRequests()
+                .then(function (receivedRequestsList) {
+                    vm.receivedRequestsList = receivedRequestsList;
+                });
         }
 
         $scope.$on('$stateChangeSuccess', function() {

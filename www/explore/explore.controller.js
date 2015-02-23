@@ -13,7 +13,10 @@
         activate();
 
         function activate () {
-            vm.serviceTypes = ExploreService.list().$object;
+            ExploreService.list()
+                .then(function (serviceTypes) {
+                    vm.serviceTypes = serviceTypes;
+                });
         }
 
     }

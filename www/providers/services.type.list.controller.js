@@ -18,7 +18,10 @@
 
         function activate () {
             vm.serviceType = $stateParams.type;
-            vm.servicesList = ServicesService.list(vm.serviceType).$object;
+            ServicesService.list(vm.serviceType)
+                .then(function (servicesList) {
+                    vm.servicesList = servicesList;
+                });
         }
 
         function refresh () {

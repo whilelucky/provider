@@ -4,7 +4,7 @@
     angular.module('provider')
         .controller('ProfileController', ProfileController);
 
-    function ProfileController (AuthenticationService) {
+    function ProfileController ($scope, AuthenticationService) {
 
         var vm = this;
 
@@ -17,6 +17,10 @@
         function activate () {
             vm.user = AuthenticationService.user;
         }
+
+        $scope.$on('$stateChangeSuccess', function() {
+            activate();
+        });
 
         function save () {
             AuthenticationService.update(vm.user);

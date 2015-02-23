@@ -6,8 +6,8 @@
 
     function config ($stateProvider, $urlRouterProvider, toastrConfig, RestangularProvider) {
 
-        RestangularProvider.setBaseUrl('http://localhost/provider-backend/public');
-//        RestangularProvider.setBaseUrl('//provider.creativevortex.in/public');
+//        RestangularProvider.setBaseUrl('http://localhost/provider-backend/public');
+        RestangularProvider.setBaseUrl('http://provider.creativevortex.in/public');
 
         angular.extend(toastrConfig, {
             positionClass: 'toast-bottom-left'
@@ -19,8 +19,7 @@
         .state('app', {
             url: '/',
             abstract: true,
-            templateUrl: 'navigation/nav.html',
-            controller: 'AppController as vm'
+            templateUrl: 'navigation/nav.html'
         })
 
         .state('app.login', {

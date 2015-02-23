@@ -18,7 +18,10 @@
 
         function activate () {
             vm.service = ServicesService.service;
-            vm.serviceTypeList = ServicesService.serviceTypeList().$object;
+            ServicesService.serviceTypeList()
+                .then(function (serviceTypeList) {
+                    vm.serviceTypeList = serviceTypeList;
+                });
         }
 
         function submit () {

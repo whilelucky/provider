@@ -1,7 +1,7 @@
 <ion-side-menus enable-menu-with-back-views="true">
 
     <ion-side-menu side="left">
-        <ion-header-bar class="bar-assertive">
+        <ion-header-bar class="bar-positive">
             <h1 class="title">Menu</h1>
         </ion-header-bar>
         <ion-content>
@@ -11,13 +11,15 @@
                     Explore Services
                 </ion-item>
                 <ion-item nav-clear menu-close class="item-icon-right" href="#/requests">
-                    <i class="icon ion-outlet"></i>
+                    <i class="icon ion-clock"></i>
                     Requests
                 </ion-item>
-                <ion-item nav-clear menu-close href="#/services/my-services">
+                <ion-item nav-clear menu-close class="item-icon-right" href="#/services/my-services">
+                    <i class="icon ion-ionic"></i>
                     My Services
                 </ion-item>
-                <ion-item nav-clear menu-close href="#/profile">
+                <ion-item nav-clear menu-close class="item-icon-right" href="#/profile">
+                    <i class="icon ion-android-social-user"></i>
                     Profile
                 </ion-item>
             </ion-list>

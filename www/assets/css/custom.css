@@ -12,3 +12,14 @@
     padding-top: 1px;
     padding-bottom: 1px;
 }
+
+.bar.bar-positive {
+    background-color: #444;
+    border-bottom: 3px solid lime;
+}
+
+.bar-positive .button {
+    background-color: #444;
+    border-color: #333;
+    /*color: yellow !important;*/
+}

@@ -17,7 +17,10 @@
         activate();
 
         function activate () {
-            vm.myServicesList = ServicesService.myList().$object;
+            ServicesService.myList()
+                .then(function (myServicesList) {
+                    vm.myServicesList = myServicesList;
+                });
         }
 
         $scope.$on('$stateChangeSuccess', function() {
