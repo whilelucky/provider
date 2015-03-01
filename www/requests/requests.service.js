@@ -4,7 +4,7 @@
     angular.module('provider')
         .service('RequestsService', RequestsService);
 
-    function RequestsService ($rootScope, Restangular, AlertsService, AuthenticationService) {
+    function RequestsService (Restangular, AlertsService, AuthenticationService) {
 
         var _requestsService = Restangular.all('requests');
 
@@ -26,47 +26,49 @@
 
         function accept (request) {
             request.status = 'accepted';
-            request.put()
+            return request.put()
                 .then(function (response) {
                     if(response.success) {
-                        $rootScope.$broadcast('requests.update');
+                        return;
                     }
                 });
         }
 
         function decline (request) {
             request.status = 'declined';
-            request.put()
+            return request.put()
                 .then(function (response) {
                     if(response.success) {
-                        $rootScope.$broadcast('requests.update');
+                        return;
                     }
                 });
         }
 
         function create (request) {
             request.user_id = AuthenticationService.user.id;
-            _requestsService.post(request)
+            return _requestsService.post(request)
                 .then(function (response) {
                     if(response.success) {
-                        $rootScope.$broadcast('requests.create');
                         AlertsService.success(response.alert);
+                        return;
                     }
                     else {
                         AlertsService.error(response.alert);
+                        throw response;
                     }
                 });
         }
 
         function remove (request) {
-            _requestsService.one(request.id).remove()
+            return _requestsService.one(request.id).remove()
                 .then(function (response) {
                     if(response.success) {
-                        $rootScope.$broadcast('requests.remove');
                         AlertsService.success(response.alert);
+                        return;
                     }
                     else {
                         AlertsService.error(response.alert);
+                        throw response;
                     }
                 });
         }

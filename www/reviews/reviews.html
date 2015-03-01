@@ -1,0 +1,10 @@
+<div class="list item-text-wrap">
+
+    <div class="item item-divider" style="font-weight: bold">Reviews</div>
+
+    <div class="item" ng-repeat="review in vm.reviewsList">
+        <p><strong>{{review.user_name}}</strong> - {{review.rating}}/5</p>
+        <p>{{review.description}}</p>
+    </div>
+
+</div>

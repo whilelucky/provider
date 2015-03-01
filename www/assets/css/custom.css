@@ -1,25 +1,50 @@
-.card {
-    padding-top: 0px;
-    padding-bottom: 0px;
+.service-details {
+    padding: 25px 16px 25px 106px;
+    line-height: 1.5em;
+}
+.service-details img {
+    top: 32px !important;
 }
 
-.list {
-    padding-top: 0px;
-    padding-bottom: 0px;
+.service-images {
+    margin: 10px;
 }
 
-.list-inset {
-    padding-top: 1px;
-    padding-bottom: 1px;
+.button-bar .button{
+    border-width: 1px;
+    margin: 1px;
 }
 
-.bar.bar-positive {
-    background-color: #444;
-    border-bottom: 3px solid lime;
+/*.bar-dark {*/
+    /*background-color: #555 !important;*/
+/*}*/
+/**/
+/*.button-dark {*/
+    /*background-color: #555 !important;*/
+    /*border-color: #444;*/
+/*}*/
+
+
+/*overrinding angular-toastr*/
+
+#toast-container.toast-top-full-width > div,
+#toast-container.toast-bottom-full-width > div {
+    margin-bottom: 5px;
 }
 
-.bar-positive .button {
-    background-color: #444;
-    border-color: #333;
-    /*color: yellow !important;*/
+
+/*overriding angular-loading-bar*/
+
+#loading-bar .bar {
+    background: #66cc33;
+    padding: 0 !important;
+    top: 41px;
+    height: 4px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#loading-bar .peg {
+    display: none !important;
+    height: 4px;
 }

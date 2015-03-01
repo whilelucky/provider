@@ -3,7 +3,9 @@
 
     angular.module('provider', [
         'ionic',
+        'ngCordova',
         'toastr',
+        'angular-loading-bar',
         'restangular'
     ]);
 
@@ -23,7 +25,7 @@
             }
         });
 
-        $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+        $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             AuthenticationService.checkUser(event, toState);
         });
     }

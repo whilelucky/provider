@@ -1,0 +1,16 @@
+<ion-view view-title="My Services">
+
+    <ion-nav-buttons side="right">
+        <button ui-sref="app.services.create" class="button button-dark">
+            Add
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content has-bouncing="true">
+
+        <div class="list card" ng-repeat="service in vm.myServicesList">
+            <service-details data="service" class="item item-thumbnail-left service-details" ng-click="vm.showOptions(service)"></service-details>
+        </div>
+
+    </ion-content>
+</ion-view>

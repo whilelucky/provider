@@ -4,7 +4,7 @@
     angular.module('provider')
         .service('ReviewsService', ReviewsService);
 
-    function ReviewsService ($rootScope, Restangular, ServicesService, AuthenticationService, AlertsService) {
+    function ReviewsService (Restangular, ServicesService, AuthenticationService, AlertsService) {
 
         var _reviewsService = Restangular.all('services');
 
@@ -19,36 +19,43 @@
 
         function create (review) {
             review.user_id = AuthenticationService.user.id;
-            _reviewsService.one(ServicesService.service.id).all('reviews').post(review)
-                .then(function (response) {
+            return _reviewsService.one(ServicesService.service.id).all('reviews').post(review)
+                .then(function(response) {
                     if(response.success) {
-                        $rootScope.$broadcast('reviews.create');
                         AlertsService.success(response.alert);
+                        return;
                     }
                     else {
                         AlertsService.error(response.alert);
+                        throw response;
                     }
                 });
         }
 
         function update (review) {
-            review.put()
-                .then(function (response) {
+            return review.put()
+                .then(function(response) {
                     if(response.success) {
-                        $rootScope.$broadcast('reviews.update');
+                        AlertsService.success(response.alert);
+                        return;
+                    }
+                    else {
+                        AlertsService.success(response.alert);
+                        throw response;
                     }
                 });
         }
 
         function remove (review) {
-            review.remove()
-                .then(function (response) {
+            return review.remove()
+                .then(function(response) {
                     if(response.success) {
-                        $rootScope.$broadcast('reviews.remove');
                         AlertsService.success(response.alert);
+                        return;
                     }
                     else {
                         AlertsService.error(response.alert);
+                        throw response;
                     }
                 });
         }

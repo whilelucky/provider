@@ -1,0 +1,14 @@
+<ion-popover-view>
+    <ion-content>
+        <div class="list">
+            <div class="item item-icon-left" ng-click="vm.filterServiceType({id: '', icon: 'ion-ionic'})">
+                <i class="icon ion-ionic"></i>
+                All Services
+            </div>
+            <div class="item item-icon-left" ng-repeat="serviceType in vm.serviceTypeList" ng-click="vm.filterServiceType(serviceType)">
+                <i class="icon {{serviceType.icon}}"></i>
+                {{serviceType.name}}
+            </div>
+        </div>
+    </ion-content>
+</ion-popover-view>

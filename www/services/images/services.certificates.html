@@ -1,0 +1,17 @@
+<ion-view view-title="Certificates">
+    <ion-nav-buttons side="right">
+        <button class="button button-balanced" ng-click="vm.pickImages()">Upload</button>
+    </ion-nav-buttons>
+
+    <ion-content has-bouncing="true">
+
+        <div class="list">
+
+            <div class="item item-image service-images" ng-repeat="serviceImage in vm.imageList" ng-click="vm.showImageOptions(serviceImage)" ng-if="serviceImage.certificate === '1'">
+                <img ng-src="http://provider.creativevortex.in/public/uploads/images/{{serviceImage.image}}">
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

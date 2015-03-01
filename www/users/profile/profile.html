@@ -6,7 +6,7 @@
         </button>
     </ion-nav-buttons>
 
-    <ion-content>
+    <ion-content has-bouncing="true">
 
         <div class="list">
 
@@ -25,10 +25,15 @@
                 <!--<input type="text" placeholder="dd/mm/yyyy" ng-model="vm.user.dob">-->
             <!--</label>-->
 
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Address</span>
-                <textarea placeholder="#123, 99th Cross, 32nd Street, Example Layout" ng-model="vm.user.address"></textarea>
-            </label>
+            <div class="item item-text-wrap item-button-right">
+                <p>
+                    lat: {{vm.user.gps_latitude}}<br/>
+                    long: {{vm.user.gps_longitude}}
+                </p>
+                <button class="button button-assertive" ng-click="vm.getGpsCoordinates()">
+                    <i class="icon ion-location"></i>
+                </button>
+            </div>
 
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Mobile</span>
@@ -41,12 +46,17 @@
             </label>
 
             <label class="item item-input item-stacked-label">
+                <span class="input-label">Address</span>
+                <textarea placeholder="#123, 99th Cross, 32nd Street, Example Layout" ng-model="vm.user.address"></textarea>
+            </label>
+
+            <label class="item item-input item-stacked-label">
                 <span class="input-label">City</span>
                 <input type="text" placeholder="Bangalore" ng-model="vm.user.city">
             </label>
 
             <label class="item item-input item-stacked-label">
-                <span class="input-label">Zip/Pin Code</span>
+                <span class="input-label">Zipcode/Pincode</span>
                 <input type="text" placeholder="560095" ng-model="vm.user.zipcode">
             </label>
 

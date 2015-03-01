@@ -5,8 +5,9 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/ionic-nightly/css/ionic.css" rel="stylesheet">
     <link rel="stylesheet" href="lib/angular-toastr/dist/angular-toastr.min.css"/>
+    <link rel="stylesheet" href="lib/angular-loading-bar/build/loading-bar.min.css"/>
     <link href="assets/css/custom.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -14,34 +15,38 @@
     -->
 
     <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic-nightly/js/ionic.bundle.js"></script>
     <script src="lib/lodash/dist/lodash.min.js"></script>
     <script src="lib/restangular/dist/restangular.min.js"></script>
     <script src="lib/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+    <script src="lib/angular-loading-bar/build/loading-bar.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <script src="cordova.js"></script>
 
     <!-- app -->
     <script src="app.js"></script>
     <script src="app.config.js"></script>
+    <script src="app.filters.js"></script>
+    <script src="app.directives.js"></script>
 
     <!-- controllers -->
     <script src="auth/authentication.controller.js"></script>
-    <script src="explore/explore.controller.js"></script>
-    <script src="providers/services.type.list.controller.js"></script>
-    <script src="providers/services.show.controller.js"></script>
-    <script src="providers/services.create.edit.controller.js"></script>
-    <script src="providers/my.services.controller.js"></script>
+    <script src="explore/services.list.controller.js"></script>
+    <script src="services/services.show.controller.js"></script>
+    <script src="services/manage/services.create.edit.controller.js"></script>
+    <script src="services/manage/my.services.controller.js"></script>
     <script src="requests/requests.controller.js"></script>
     <script src="users/profile/profile.controller.js"></script>
 
     <!-- services -->
     <script src="auth/authentication.service.js"></script>
-    <script src="explore/explore.service.js"></script>
     <script src="requests/requests.service.js"></script>
-    <script src="providers/services.service.js"></script>
+    <script src="services/services.service.js"></script>
+    <script src="services/images/images.service.js"></script>
     <script src="reviews/reviews.service.js"></script>
+    <script src="cordova.service.js"></script>
     <script src="alerts.service.js"></script>
 
 </head>

@@ -18,33 +18,33 @@
 
         function activate () {
             RequestsService.sentRequests()
-                .then(function (sentRequestsList) {
+                .then(function(sentRequestsList) {
                     vm.sentRequestsList = sentRequestsList;
                 });
             RequestsService.receivedRequests()
-                .then(function (receivedRequestsList) {
+                .then(function(receivedRequestsList) {
                     vm.receivedRequestsList = receivedRequestsList;
                 });
         }
 
-        $scope.$on('$stateChangeSuccess', function() {
+        $scope.$on('$ionicView.enter', function() {
             activate();
         });
 
         function acceptRequest (request) {
-            RequestsService.accept(request);
+            RequestsService.accept(request)
+                .then(activate);
         }
 
         function declineRequest (request) {
-            RequestsService.decline(request);
+            RequestsService.decline(request)
+                .then(activate);
         }
 
         function cancelRequest (request) {
-            RequestsService.remove(request);
+            RequestsService.remove(request)
+                .then(activate);
         }
-
-        $scope.$on('requests.update', activate);
-        $scope.$on('requests.remove', activate);
 
     }
 

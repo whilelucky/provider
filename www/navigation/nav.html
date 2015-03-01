@@ -1,24 +1,24 @@
-<ion-side-menus enable-menu-with-back-views="true">
+<ion-side-menus enable-menu-with-back-views="false">
 
     <ion-side-menu side="left">
-        <ion-header-bar class="bar-positive">
+        <ion-header-bar class="bar-dark">
             <h1 class="title">Menu</h1>
         </ion-header-bar>
         <ion-content>
             <ion-list>
-                <ion-item nav-clear menu-close class="item-icon-right" href="#/explore">
+                <ion-item nav-clear menu-close class="item-icon-right" ui-sref="app.explore">
                     <i class="icon ion-earth"></i>
-                    Explore Services
+                    Explore
                 </ion-item>
-                <ion-item nav-clear menu-close class="item-icon-right" href="#/requests">
+                <ion-item nav-clear menu-close class="item-icon-right" ui-sref="app.requests">
                     <i class="icon ion-clock"></i>
                     Requests
                 </ion-item>
-                <ion-item nav-clear menu-close class="item-icon-right" href="#/services/my-services">
+                <ion-item nav-clear menu-close class="item-icon-right" ui-sref="app.services.my-services">
                     <i class="icon ion-ionic"></i>
                     My Services
                 </ion-item>
-                <ion-item nav-clear menu-close class="item-icon-right" href="#/profile">
+                <ion-item nav-clear menu-close class="item-icon-right" ui-sref="app.profile">
                     <i class="icon ion-android-social-user"></i>
                     Profile
                 </ion-item>
@@ -27,9 +27,9 @@
     </ion-side-menu>
 
 
-    <ion-side-menu-content>
+    <ion-side-menu-content drag-content="false">
 
-        <ion-nav-bar class="bar-positive">
+        <ion-nav-bar class="bar-dark">
             <ion-nav-buttons side="left">
                 <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
             </ion-nav-buttons>

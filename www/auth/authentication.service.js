@@ -6,7 +6,7 @@
 
     function AuthenticationService ($state, $rootScope, Restangular, AlertsService) {
 
-        this.user = {};
+        this.user = {id: "1"};
         this.login = login;
         this.logout = logout;
         this.create = create;
@@ -34,7 +34,7 @@
 //                .then(function (response) {
 //                    if(response.success) {
                         parent.user = {};
-                        $state.go('app.login');
+                        $state.go('login');
                         AlertsService.success('Logged out');
 //                    }
 //                    else {
@@ -46,16 +46,18 @@
         function create (user) {
             if(user.password !== user.repeat_password) {
                 AlertsService.error('Password mismatch');
+                throw {};
             }
             else {
-                _authenticationService.all('users').post(user)
+                return _authenticationService.all('users').post(user)
                     .then(function (response) {
                         if(response.success) {
-                            $rootScope.$broadcast('user.create');
                             AlertsService.success(response.alert);
+                            return;
                         }
                         else {
                             AlertsService.error(response.alert);
+                            throw {};
                         }
                     });
             }
@@ -76,17 +78,11 @@
         }
 
         function checkUser(event, toState) {
-
             if( (toState.url !== 'login' && toState.url !== 'register') && _.isEmpty(parent.user)) {
-                event.preventDefault();
-                $state.go('app.login');
+                $state.go('login');
+//                AlertsService.success('Please Login');
+//                event.preventDefault();
             }
-
-            else if(toState.url === 'login'  && !(_.isEmpty(parent.user))) {
-                event.preventDefault();
-                AlertsService.warning('Already logged in');
-            }
-
         }
     }
 

@@ -1,0 +1,28 @@
+<ion-view view-title="Service Details">
+    <ion-content has-bouncing="true">
+
+        <div class="list list-inset">
+
+            <service-details data="vm.service" class="item item-thumbnail-left service-details"></service-details>
+
+            <div class="item item-image">
+                <ion-slide-box>
+                    <ion-slide ng-repeat="serviceImage in vm.service.images">
+                        <img ng-src="http://provider.creativevortex.in/public/uploads/images/{{serviceImage.image}}">
+                    </ion-slide>
+                </ion-slide-box>
+            </div>
+
+        </div>
+
+        <div class="button-bar">
+            <button ng-click="vm.sendRequest()" class="button button-outline button-positive icon-left ion-paper-airplane">Request</button>
+            <button ng-click="vm.showReviewForm()" class="button button-outline button-assertive icon-left ion-chatboxes">Write Review</button>
+        </div>
+
+        <br/>
+
+        <ng-include src="'reviews/reviews.html'"></ng-include>
+
+    </ion-content>
+</ion-view>
