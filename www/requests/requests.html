@@ -6,15 +6,25 @@
             <ion-header-bar></ion-header-bar>
             <ion-content has-bouncing="true">
 
-                <div class="list card" ng-repeat="sentRequest in vm.sentRequestsList">
+                <div class="list list-inset" ng-repeat="sentRequest in vm.sentRequestsList">
 
-                    <service-details data="sentRequest.service" class="item item-light service-details"></service-details>
-
-                    <div class="item item-borderless button-bar" style="padding: 0px;">
-                        <button ng-if="sentRequest.status === 'pending'" class="button button-small button-energized">Pending</button>
-                        <button ng-if="sentRequest.status === 'accepted'" class="button button-small button-balanced">Accepted</button>
-                        <button ng-if="sentRequest.status === 'declined'" class="button button-small button-assertive">Declined</button>
-                        <button class="button button-small button-assertive" ng-click="vm.cancelRequest(sentRequest)">Cancel</button>
+                    <div class="item item-light item-text-wrap service-details">
+                        <!--<i class="icon {{sentRequest.service.service_type_icon}}"></i>-->
+                        <i class="icon ion-flash"></i>
+                        <h2>{{sentRequest.service.name}}</h2>
+                        <p>{{sentRequest.service.address}}</p>
+                        <p>{{sentRequest.service.mobile}} | {{sentRequest.service.landline}}</p>
+                        <p>
+                            <i class="icon ion-location"></i> {{sentRequest.service.range | distance}}
+                            &nbsp;&nbsp;&nbsp;
+                            <i class="icon ion-star"></i> {{sentRequest.service.rating}}/5.00
+                        </p>
+                        <div class="button-bar" style="margin-top: 15px">
+                            <button ng-if="sentRequest.status === 'pending'" class="button button-block button-small button-energized">Pending</button>
+                            <button ng-if="sentRequest.status === 'accepted'" class="button button-block button-small button-balanced">Accepted</button>
+                            <button ng-if="sentRequest.status === 'declined'" class="button button-block button-small button-assertive">Declined</button>
+                        </div>
+                        <button class="button button-clear button-assertive icon ion-android-close service-close-button" ng-click="vm.cancelRequest(sentRequest)"></button>
                     </div>
 
                 </div>
@@ -27,7 +37,7 @@
             <ion-header-bar></ion-header-bar>
             <ion-content has-bouncing="true">
 
-                <div class="list card" ng-repeat="receivedRequest in vm.receivedRequestsList">
+                <div class="list list-inset" ng-repeat="receivedRequest in vm.receivedRequestsList">
 
                     <div class="item item-thumbnail-left item-light item-text-wrap service-details">
                         <img src="http://lorempixel.com/50/50">
@@ -38,7 +48,7 @@
                         <p>{{receivedRequest.service_name}}</p>
                     </div>
 
-                    <div class="item item-borderless button-bar" style="padding: 0px;">
+                    <div class="item button-bar">
                         <button ng-if="receivedRequest.status === 'accepted'" class="button button-small button-clear button-balanced">Accepted</button>
                         <button ng-hide="receivedRequest.status === 'accepted'" class="button button-small button-outline button-balanced" ng-click="vm.acceptRequest(receivedRequest)">Accept</button>
                         <button ng-if="receivedRequest.status === 'declined'" class="button button-small button-clear button-assertive">Declined</button>

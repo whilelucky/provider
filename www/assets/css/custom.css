@@ -1,5 +1,5 @@
 ion-content {
-    background-color: #f8f8f8 !important;
+    background-color: #ECF0F1 !important;
 }
 
 .white-page {
@@ -11,11 +11,15 @@ ion-content {
     line-height: 1.5em;
 }
 .service-details>.icon:first-child {
-    color: #aaa;
+    color: #34495e;
+    opacity: 0.8;
     position: absolute;
     font-size: 60px;
     left: 23px;
     top: 40px;
+}
+.service-details img {
+    top: 40px !important;
 }
 
 .service-images {
@@ -31,6 +35,12 @@ ion-content {
     margin: 1px;
 }
 
+.service-close-button {
+    position: absolute;
+    top: 0;
+    right: -6px;
+}
+
 /*overrinding angular-toastr*/
 
 #toast-container.toast-top-full-width > div,
@@ -42,8 +52,7 @@ ion-content {
 /*overriding angular-loading-bar*/
 
 #loading-bar .bar {
-    /*background-color: #66cc33;*/
-    background-color: #2ecc71;
+    background-color: #1abc9c;
     padding: 0 !important;
     top: 40px;
     height: 4px;
@@ -61,19 +70,3 @@ ion-content {
 .slider-pager .slider-pager-page {
     font-size: 10px;
 }
-
-/*.bar-dark, .button-dark {*/
-    /*background-color: #34495e !important;*/
-    /*border-color: #34495e !important;*/
-/*}*/
-/*.button.button-dark.button-outline {*/
-    /*background: transparent !important;*/
-/*}*/
-
-/*.button-positive {*/
-    /*background-color: #2ecc71 !important;*/
-/*}*/
-
-/**[class*="assertive"] {*/
-    /*background-color: #e74c3c !important;*/
-/*}*/

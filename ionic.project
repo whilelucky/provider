@@ -1,4 +1,12 @@
 {
   "name": "provider",
-  "app_id": "db96a06b"
+  "app_id": "db96a06b",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }

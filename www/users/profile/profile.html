@@ -10,7 +10,7 @@
 
 
             <div class="item item-image item-button-right">
-                <img ng-src="https://maps.googleapis.com/maps/api/staticmap?markers={{vm.user.gps_latitude}},{{vm.user.gps_longitude}}&size=480x270&zoom=16" alt=""/>
+                <img ng-src="https://maps.googleapis.com/maps/api/staticmap?markers={{vm.user.gps_latitude}},{{vm.user.gps_longitude}}&size=480x270&zoom=16" alt="position on map"/>
                 <button style="top: 16px" class="button button-outline button-assertive" ng-click="vm.getGpsCoordinates()">
                     <i class="icon ion-location"></i>
                 </button>
@@ -57,7 +57,7 @@
             </label>
 
             <label class="item">
-                <button ng-click="vm.save()" class="button button-block button-outline button-positive">Save</button>
+                <button ng-click="vm.save()" class="button button-block button-outline button-dark">Save</button>
             </label>
 
         </div>

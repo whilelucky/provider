@@ -15,16 +15,11 @@
             on-refresh="vm.refresh()">
         </ion-refresher>
 
-        <div class="list card" ng-repeat="service in vm.servicesList | filter:vm.filter | filter:vm.inRange">
+        <div class="list list-inset" ng-repeat="service in vm.servicesList | filter:vm.filter | filter:vm.inRange">
             <service-details data="service" class="item item-light service-details" ng-click="vm.showService(service)"></service-details>
         </div>
 
     </ion-content>
-
-    <!--<div class="bar bar-footer bar-subfooter bar-light button-bar">-->
-        <!--<button class="button button-clear button-calm icon {{serviceType.icon}}" ng-class="serviceType.name===vm.filter ? 'activated' : ''" ng-repeat="serviceType in vm.serviceTypeList" ng-click="vm.filter=serviceType.name"></button>-->
-        <!--<button class="button"></button> &lt;!&ndash; needed to stabalize buttons on bar &ndash;&gt;-->
-    <!--</div>-->
 
     <div class="bar bar-footer bar-light range range-balanced">
         <i class="icon ion-location"></i>

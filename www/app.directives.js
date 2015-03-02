@@ -7,6 +7,7 @@
     function serviceDetails () {
         return {
             restrict: 'E',
+//            transclude: true,
             scope: {
                 service: '=data'
             },

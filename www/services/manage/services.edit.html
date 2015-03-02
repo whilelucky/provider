@@ -5,7 +5,7 @@
         <div class="list">
 
             <div class="item item-image item-button-right">
-                <img ng-src="https://maps.googleapis.com/maps/api/staticmap?markers={{vm.service.gps_latitude}},{{vm.service.gps_longitude}}&size=480x270&zoom=16" alt=""/>
+                <img ng-src="https://maps.googleapis.com/maps/api/staticmap?markers={{vm.service.gps_latitude}},{{vm.service.gps_longitude}}&size=480x270&zoom=16" alt="position on map"/>
                 <button style="top: 16px" class="button button-outline button-assertive" ng-click="vm.getGpsCoordinates()">
                     <i class="icon ion-location"></i>
                 </button>
@@ -49,7 +49,7 @@
             </label>
 
             <label class="item">
-                <button class="button button-block button-outline button-positive" ng-click="vm.update()">Update</button>
+                <button class="button button-block button-outline button-dark" ng-click="vm.update()">Update</button>
             </label>
 
         </div>

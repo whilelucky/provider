@@ -15,9 +15,16 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+$dark:                            #34495e !default;
+$positive:                        #3498db !default;
+$balanced:                        #1abc9c !default;
+$assertive:                       #e74c3c !default;
+$energized:                       #f1c40f !default;
+
 // The path for our ionicons font files, relative to the built CSS in www/css
-$ionicons-font-path: "../lib/ionic/fonts" !default;
+$ionicons-font-path: "../../lib/ionic-nightly/fonts" !default;
+$ionicons-version: "2.0.1" !default;
 
 // Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
+@import "www/lib/ionic-nightly/scss/ionic";
 

@@ -2,7 +2,7 @@
   "name": "provider",
   "private": true,
   "devDependencies": {
-//    "ionic": "driftyco/ionic-bower#1.0.0-beta.14"
+    "ionic": "driftyco/ionic-bower#1.0.0-beta.14"
   },
   "version": "0.0.0",
   "main": "index.html",
@@ -14,7 +14,8 @@
     "restangular": "~1.4.0",
     "angular-toastr": "~1.0.1",
     "ngCordova": "~0.1.12-alpha",
-    "angular-loading-bar": "~0.7.1"
+    "angular-loading-bar": "~0.7.1",
+    "ionicons": "~2.0.1"
   },
   "homepage": "https://github.com/lakshya93/provider"
 }
