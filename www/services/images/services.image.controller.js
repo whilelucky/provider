@@ -9,23 +9,31 @@
         var vm = this;
 
         vm.service = {};
-        vm.imageList = [];
+        vm.imagesList = [];
         vm.showImageOptions = showImageOptions;
-        vm.getImageList = getImageList;
+        vm.getImagesList = getImagesList;
         vm.pickImages = pickImages;
 
         activate();
 
         function activate () {
             vm.service = ServicesService.service;
-            getImageList();
+            getImagesList();
         }
 
-        function getImageList () {
-            ImagesService.list(vm.service)
-                .then(function(images) {
-                    vm.imageList = images;
-                });
+        function getImagesList () {
+            if($state.current.url === '/images') {
+                ImagesService.imagesList(vm.service)
+                    .then(function(images) {
+                        vm.imagesList = images;
+                    });
+            }
+            else if($state.current.url === '/certificates') {
+                ImagesService.certificatesList(vm.service)
+                    .then(function(images) {
+                        vm.imagesList = images;
+                    });
+            }
         }
 
         function pickImages () {
