@@ -1,67 +1,63 @@
 <ion-view view-title="Profile">
 
     <ion-nav-buttons side="right">
-        <button ng-click="vm.logout()" class="button button-assertive">
-            Logout
-        </button>
+        <button ng-click="vm.logout()" class="button button-clear button-assertive icon ion-android-exit"></button>
     </ion-nav-buttons>
 
     <ion-content has-bouncing="true">
 
         <div class="list">
 
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">First Name</span>
-                <input type="text" placeholder="John" ng-model="vm.user.first_name">
-            </label>
 
-            <label class="item item-input item-stacked-label">
-                <span class="input-label">Last Name</span>
-                <input type="text" placeholder="Suhr" ng-model="vm.user.last_name">
-            </label>
-
-            <!--<label class="item item-input item-stacked-label">-->
-                <!--<span class="input-label">Date of Birth</span>-->
-                <!--<input type="text" placeholder="dd/mm/yyyy" ng-model="vm.user.dob">-->
-            <!--</label>-->
-
-            <div class="item item-text-wrap item-button-right">
-                <p>
-                    lat: {{vm.user.gps_latitude}}<br/>
-                    long: {{vm.user.gps_longitude}}
-                </p>
-                <button class="button button-assertive" ng-click="vm.getGpsCoordinates()">
+            <div class="item item-image item-button-right">
+                <img ng-src="https://maps.googleapis.com/maps/api/staticmap?markers={{vm.user.gps_latitude}},{{vm.user.gps_longitude}}&size=480x270&zoom=16" alt=""/>
+                <button style="top: 16px" class="button button-outline button-assertive" ng-click="vm.getGpsCoordinates()">
                     <i class="icon ion-location"></i>
                 </button>
             </div>
 
-            <label class="item item-input item-stacked-label">
+            <label class="item item-light item-input item-floating-label">
+                <span class="input-label">First Name</span>
+                <input type="text" placeholder="First Name" ng-model="vm.user.first_name">
+            </label>
+
+            <label class="item item-light item-input item-floating-label">
+                <span class="input-label">Last Name</span>
+                <input type="text" placeholder="Last Name" ng-model="vm.user.last_name">
+            </label>
+
+            <!--<label class="item item-light item-input item-floating-label">-->
+                <!--<span class="input-label">Date of Birth</span>-->
+                <!--<input type="text" placeholder="dd/mm/yyyy" ng-model="vm.user.dob">-->
+            <!--</label>-->
+
+            <label class="item item-light item-input item-floating-label">
                 <span class="input-label">Mobile</span>
-                <input type="text" placeholder="+91 987654321" ng-model="vm.user.mobile">
+                <input type="text" placeholder="Mobile" ng-model="vm.user.mobile">
             </label>
 
-            <label class="item item-input item-stacked-label">
+            <label class="item item-light item-input item-floating-label">
                 <span class="input-label">Landline</span>
-                <input type="text" placeholder="080 25717275" ng-model="vm.user.landline">
+                <input type="text" placeholder="Landline" ng-model="vm.user.landline">
             </label>
 
-            <label class="item item-input item-stacked-label">
+            <label class="item item-light item-input item-floating-label">
                 <span class="input-label">Address</span>
-                <textarea placeholder="#123, 99th Cross, 32nd Street, Example Layout" ng-model="vm.user.address"></textarea>
+                <textarea placeholder="Address" ng-model="vm.user.address" rows="3"></textarea>
             </label>
 
-            <label class="item item-input item-stacked-label">
+            <label class="item item-light item-input item-floating-label">
                 <span class="input-label">City</span>
-                <input type="text" placeholder="Bangalore" ng-model="vm.user.city">
+                <input type="text" placeholder="City" ng-model="vm.user.city">
             </label>
 
-            <label class="item item-input item-stacked-label">
+            <label class="item item-light item-input item-floating-label">
                 <span class="input-label">Zipcode/Pincode</span>
-                <input type="text" placeholder="560095" ng-model="vm.user.zipcode">
+                <input type="text" placeholder="Zipcode/Pincode" ng-model="vm.user.zipcode">
             </label>
 
             <label class="item">
-                <button ng-click="vm.save()" class="button button-block button-positive">Save</button>
+                <button ng-click="vm.save()" class="button button-block button-outline button-positive">Save</button>
             </label>
 
         </div>

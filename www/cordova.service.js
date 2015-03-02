@@ -15,10 +15,10 @@
             var posOptions = {timeout: 10000, enableHighAccuracy: true};
             return $cordovaGeolocation.getCurrentPosition(posOptions)
                 .then(function(position) {
-                    AlertsService.success('Received location');
+                    AlertsService.success('Received current location');
                     return position;
                 }, function(err) {
-                    AlertsService.error('Please turn on location services and try again');
+                    AlertsService.error('Please turn on location services (GPS) and try again');
                     throw err;
                 });
         }
@@ -26,7 +26,7 @@
 
         function pickImages () {
             var options = {
-                maximumImagesCount: 10,
+                maximumImagesCount: 5,
                 width: 0,
                 height: 0,
                 quality: 100
@@ -46,7 +46,7 @@
 
         function uploadImages (service, imageList, params) {
             var serverPath = "http://provider.creativevortex.in/public/services/"+service.id+"/images";
-            AlertsService.info('Uploading files...');
+            AlertsService.info('Uploading files, this may take a while');
 
             var uploadPromises = [];
 
@@ -58,23 +58,24 @@
                     params: params
                 };
 
-                uploadPromises.push($cordovaFileTransfer.upload(serverPath, imageURI, options)
-                    .then(function(results) {
-                        AlertsService.success('Uploaded ' + options.fileName);
-                        return;
-                    }, function(err) {
-                        AlertsService.error('Could not upload ' + options.fileName);
-                        throw err;
-                    }, function (progress) {
-//                        constant progress updates
-                    })
+                uploadPromises.push(
+                    $cordovaFileTransfer.upload(serverPath, imageURI, options)
+                        .then(function(results) {
+                            AlertsService.success('Uploaded ' + options.fileName);
+                            return;
+                        }, function(err) {
+                            AlertsService.error('Could not upload ' + options.fileName);
+                            throw err;
+                        }, function (progress) {
+//                            constant progress updates
+                        })
                 );
             });
 
             $q.all(uploadPromises)
                 .then(function() {
                     $rootScope.$broadcast('images.uploaded');
-                    AlertsService.success('WOOOTIEEPOP');
+                    AlertsService.success('Upload complete');
                 });
 
         }

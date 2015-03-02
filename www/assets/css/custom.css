@@ -1,29 +1,35 @@
+ion-content {
+    background-color: #f8f8f8 !important;
+}
+
+.white-page {
+    background-color: #ffffff !important;
+}
+
 .service-details {
-    padding: 25px 16px 25px 106px;
+    padding: 25px 15px 25px 100px;
     line-height: 1.5em;
 }
-.service-details img {
-    top: 32px !important;
+.service-details>.icon:first-child {
+    color: #aaa;
+    position: absolute;
+    font-size: 60px;
+    left: 23px;
+    top: 40px;
 }
 
 .service-images {
     margin: 10px;
 }
 
+.review-item .row{
+    padding: 0;
+}
+
 .button-bar .button{
     border-width: 1px;
     margin: 1px;
 }
-
-/*.bar-dark {*/
-    /*background-color: #555 !important;*/
-/*}*/
-/**/
-/*.button-dark {*/
-    /*background-color: #555 !important;*/
-    /*border-color: #444;*/
-/*}*/
-
 
 /*overrinding angular-toastr*/
 
@@ -36,9 +42,10 @@
 /*overriding angular-loading-bar*/
 
 #loading-bar .bar {
-    background: #66cc33;
+    /*background-color: #66cc33;*/
+    background-color: #2ecc71;
     padding: 0 !important;
-    top: 41px;
+    top: 40px;
     height: 4px;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
@@ -48,3 +55,25 @@
     display: none !important;
     height: 4px;
 }
+
+/*overriding ion-slide pager*/
+
+.slider-pager .slider-pager-page {
+    font-size: 10px;
+}
+
+/*.bar-dark, .button-dark {*/
+    /*background-color: #34495e !important;*/
+    /*border-color: #34495e !important;*/
+/*}*/
+/*.button.button-dark.button-outline {*/
+    /*background: transparent !important;*/
+/*}*/
+
+/*.button-positive {*/
+    /*background-color: #2ecc71 !important;*/
+/*}*/
+
+/**[class*="assertive"] {*/
+    /*background-color: #e74c3c !important;*/
+/*}*/

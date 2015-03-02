@@ -3,10 +3,13 @@
 
         <div class="list list-inset">
 
-            <service-details data="vm.service" class="item item-thumbnail-left service-details"></service-details>
+            <service-details data="vm.service" class="item item-light service-details"></service-details>
 
             <div class="item item-image">
                 <ion-slide-box>
+                    <ion-slide>
+                        <img ng-src="https://maps.googleapis.com/maps/api/staticmap?markers={{vm.service.gps_latitude}},{{vm.service.gps_longitude}}&size=400x300&zoom=16" alt=""/>
+                    </ion-slide>
                     <ion-slide ng-repeat="serviceImage in vm.service.images">
                         <img ng-src="http://provider.creativevortex.in/public/uploads/images/{{serviceImage.image}}">
                     </ion-slide>
@@ -15,12 +18,12 @@
 
         </div>
 
-        <div class="button-bar">
-            <button ng-click="vm.sendRequest()" class="button button-outline button-positive icon-left ion-paper-airplane">Request</button>
-            <button ng-click="vm.showReviewForm()" class="button button-outline button-assertive icon-left ion-chatboxes">Write Review</button>
+        <div class="list list-inset">
+            <div class="button-bar">
+                <button ng-click="vm.sendRequest()" class="button button-outline button-positive icon-left ion-paper-airplane">Request</button>
+                <button ng-click="vm.showReviewForm()" class="button button-outline button-assertive icon-left ion-chatboxes">Write Review</button>
+            </div>
         </div>
-
-        <br/>
 
         <ng-include src="'reviews/reviews.html'"></ng-include>
 

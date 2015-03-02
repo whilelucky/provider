@@ -80,13 +80,13 @@
         .state('app.services.images', {
             url: '/images',
             templateUrl: 'services/images/services.images.html',
-            controller: 'ServicesCreateEditController as vm'
+            controller: 'ServicesImageController as vm'
         })
 
         .state('app.services.certificates', {
             url: '/certificates',
             templateUrl: 'services/images/services.certificates.html',
-            controller: 'ServicesCreateEditController as vm'
+            controller: 'ServicesImageController as vm'
         })
 
         .state('app.services.show', {

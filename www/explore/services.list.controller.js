@@ -9,11 +9,11 @@
         var vm = this;
 
         vm.serviceType = '';
-        vm.filter = {};
-        vm.filterServiceTypeIcon = 'ion-ionic';
         vm.servicesList = [];
         vm.serviceTypeList = [];
         vm.range = 0;
+        vm.filter = {};
+        vm.popoverIcon = 'ion-funnel';
         vm.inRange = inRange;
         vm.refresh = refresh;
         vm.filterServiceType = filterServiceType;
@@ -55,7 +55,7 @@
 
         function filterServiceType (serviceType) {
             vm.filter.service_type_id = serviceType.id;
-            vm.filterServiceTypeIcon = serviceType.icon;
+            vm.popoverIcon = serviceType.icon;
             $scope.popover.hide();
         }
 

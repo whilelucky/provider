@@ -1,6 +1,6 @@
 <ion-view title="Requests" ng-init="vm.refresh()">
 
-    <ion-tabs class="tabs-color-positive tabs-background-light tabs-icon-top tabs-top">
+    <ion-tabs class="tabs-color-light tabs-background-dark tabs-icon-top tabs-top">
 
         <ion-tab title="Sent" icon-on="ion-ios-paperplane" icon-off="ion-ios-paperplane-outline">
             <ion-header-bar></ion-header-bar>
@@ -8,13 +8,13 @@
 
                 <div class="list card" ng-repeat="sentRequest in vm.sentRequestsList">
 
-                    <service-details data="sentRequest.service" class="item item-thumbnail-left service-details"></service-details>
+                    <service-details data="sentRequest.service" class="item item-light service-details"></service-details>
 
                     <div class="item item-borderless button-bar" style="padding: 0px;">
-                        <button ng-if="sentRequest.status === 'pending'" class="button button-small button-clear button-energized">Pending</button>
-                        <button ng-if="sentRequest.status === 'accepted'" class="button button-small button-clear button-balanced">Accepted</button>
-                        <button ng-if="sentRequest.status === 'declined'" class="button button-small button-clear button-assertive">Declined</button>
-                        <button class="button button-small button-outline button-assertive" ng-click="vm.cancelRequest(sentRequest)">Cancel</button>
+                        <button ng-if="sentRequest.status === 'pending'" class="button button-small button-energized">Pending</button>
+                        <button ng-if="sentRequest.status === 'accepted'" class="button button-small button-balanced">Accepted</button>
+                        <button ng-if="sentRequest.status === 'declined'" class="button button-small button-assertive">Declined</button>
+                        <button class="button button-small button-assertive" ng-click="vm.cancelRequest(sentRequest)">Cancel</button>
                     </div>
 
                 </div>
@@ -29,7 +29,7 @@
 
                 <div class="list card" ng-repeat="receivedRequest in vm.receivedRequestsList">
 
-                    <div class="item item-thumbnail-left item-text-wrap service-details">
+                    <div class="item item-thumbnail-left item-light item-text-wrap service-details">
                         <img src="http://lorempixel.com/50/50">
                         <h2>{{receivedRequest.user.first_name}} {{receivedRequest.user.last_name}}</h2>
                         <p>{{receivedRequest.user.address}}</p>

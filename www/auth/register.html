@@ -1,12 +1,11 @@
 <ion-modal-view>
     <ion-header-bar class="bar-positive">
-        <h1 class="title">Register</h1>
+        <div class="title">Register</div>
         <div class="buttons">
-            <button class="button" ng-click="vm.hideRegisterForm()">Close</button>
+            <button class="button button-clear button-light icon ion-android-close" ng-click="vm.hideRegisterForm()"></button>
         </div>
     </ion-header-bar>
-    <ion-content>
-        <form ng-submit="vm.register()">
+    <ion-content class="white-page">
             <div class="list">
                 <label class="item item-input item-floating-label">
                     <span class="input-label">First Name</span>
@@ -34,9 +33,8 @@
                 </label>
 
                 <label class="item">
-                    <button class="button button-block button-royal" type="submit">Register</button>
+                    <button class="button button-block button-royal" ng-click="vm.register()">Register</button>
                 </label>
             </div>
-        </form>
     </ion-content>
 </ion-modal-view>

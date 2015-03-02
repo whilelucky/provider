@@ -1,10 +1,15 @@
 <div class="list item-text-wrap">
 
-    <div class="item item-divider" style="font-weight: bold">Reviews</div>
+    <div class="item item-dark item-divider">Reviews</div>
 
-    <div class="item" ng-repeat="review in vm.reviewsList">
-        <p><strong>{{review.user_name}}</strong> - {{review.rating}}/5</p>
-        <p>{{review.description}}</p>
+    <div class="item item-light review-item" ng-repeat="review in vm.reviewsList">
+        <div class="row">
+            <h2 class="col col-80">{{review.user_name}}</h2>
+            <p class="col col-20">{{review.rating}}/5</p>
+        </div>
+        <div class="row">
+            <p class="col">{{review.description}}</p>
+        </div>
     </div>
 
 </div>

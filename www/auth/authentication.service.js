@@ -6,7 +6,7 @@
 
     function AuthenticationService ($state, $rootScope, Restangular, AlertsService) {
 
-        this.user = {id: "1"};
+        this.user = {id: "1", gps_latitude: "12.905226", gps_longitude: "77.564661"};
         this.login = login;
         this.logout = logout;
         this.create = create;

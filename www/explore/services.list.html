@@ -1,11 +1,11 @@
 <ion-view view-title="Explore">
 
-    <div class="bar bar-subheader bar-stable item-input-inset">
+    <div class="bar bar-subheader bar-light item-input-inset">
         <label class="item-input-wrapper">
-            <i class="icon ion-ios7-search placeholder-icon"></i>
+            <i class="icon ion-ios-search placeholder-icon"></i>
             <input type="search" placeholder="Search" ng-model="vm.filter.$">
         </label>
-        <button class="button button-outline button-dark icon" ng-class="vm.filterServiceTypeIcon" ng-click="popover.show($event)"></button>
+        <button class="button button-outline button-dark icon" ng-class="vm.popoverIcon" ng-click="popover.show($event)"></button>
     </div>
 
     <ion-content class="has-subheader has-footer" has-bouncing="true">
@@ -16,7 +16,7 @@
         </ion-refresher>
 
         <div class="list card" ng-repeat="service in vm.servicesList | filter:vm.filter | filter:vm.inRange">
-            <service-details data="service" class="item item-thumbnail-left service-details" ng-click="vm.showService(service)"></service-details>
+            <service-details data="service" class="item item-light service-details" ng-click="vm.showService(service)"></service-details>
         </div>
 
     </ion-content>
@@ -26,7 +26,7 @@
         <!--<button class="button"></button> &lt;!&ndash; needed to stabalize buttons on bar &ndash;&gt;-->
     <!--</div>-->
 
-    <div class="bar bar-footer range range-balanced">
+    <div class="bar bar-footer bar-light range range-balanced">
         <i class="icon ion-location"></i>
         <input type="range" ng-model="vm.range" min="10" max="5000">
         <span class="item-note">{{vm.range}}m</span>

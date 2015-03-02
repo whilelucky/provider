@@ -1,12 +1,12 @@
 <ion-view hide-nav-bar="true" cache-view="false">
-    <ion-content>
-        <form ng-submit="vm.login()">
-            <div class="list">
-                <div class="item">
-                    <br/><br/><br/>
-                    <h1 class="text-center">Provider</h1>
-                    <p class="text-center">The only one you'll ever need</p>
-                </div>
+    <ion-content class="white-page">
+        <div class="list">
+            <div class="item">
+                <br/><br/><br/><br/>
+                <h1 class="text-center">Provider</h1>
+                <p class="text-center">The only one you'll ever need</p>
+            </div>
+            <form ng-submit="vm.login()">
                 <label class="item item-input">
                     <span class="input-label">Email</span>
                     <input type="text" ng-model="vm.user.email">
@@ -18,12 +18,10 @@
                 <label class="item">
                     <button class="button button-block button-positive" type="submit">Log in</button>
                 </label>
-            </div>
-        </form>
-        <div class="list">
-            <label class="item">
+            </form>
+            <div class="item item-borderless">
                 <button ng-click="vm.showRegisterForm()" class="button button-block button-royal">Register</button>
-            </label>
+            </div>
         </div>
     </ion-content>
 </ion-view>

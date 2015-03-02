@@ -2,60 +2,57 @@
 
     <ion-content has-bouncing="true">
 
-            <div class="list">
+        <div class="list">
 
-                <label class="item item-input item-select">
-                    <span class="input-label">Service Type</span>
-                    <select ng-model="vm.service.service_type_id" ng-options="serviceType.id as serviceType.name for serviceType in vm.serviceTypeList" value="vm.service.service_type_id">
-                        <option value="">Choose</option>
-                    </select>
-                </label>
-
-                <label class="item item-input item-floating-label">
-                    <span class="input-label">Service Name</span>
-                    <input type="text" placeholder="Service Name" ng-model="vm.service.name">
-                </label>
-
-                <div class="item item-text-wrap item-button-right">
-                    <p>
-                        lat: {{vm.service.gps_latitude}}<br/>
-                        long: {{vm.service.gps_longitude}}
-                    </p>
-                    <button class="button button-assertive" ng-click="vm.getGpsCoordinates()">
-                        <i class="icon ion-location"></i>
-                    </button>
-                </div>
-
-                <label class="item item-input item-floating-label">
-                    <span class="input-label">Mobile</span>
-                    <input type="text" placeholder="Mobile" ng-model="vm.service.mobile">
-                </label>
-
-                <label class="item item-input item-floating-label">
-                    <span class="input-label">Landline</span>
-                    <input type="text" placeholder="Landline" ng-model="vm.service.landline">
-                </label>
-
-                <label class="item item-input item-floating-label">
-                    <span class="input-label">Address</span>
-                    <textarea placeholder="Address" ng-model="vm.service.address" rows="3"></textarea>
-                </label>
-
-                <label class="item item-input item-floating-label">
-                    <span class="input-label">City</span>
-                    <input type="text" placeholder="City" ng-model="vm.service.city">
-                </label>
-
-                <label class="item item-input item-floating-label">
-                    <span class="input-label">Zipcode/Pincode</span>
-                    <input type="text" placeholder="Zipcode/Pincode" ng-model="vm.service.zipcode">
-                </label>
-
-                <label class="item">
-                    <button class="button button-block button-positive" ng-click="vm.update()">Update</button>
-                </label>
-
+            <div class="item item-image item-button-right">
+                <img ng-src="https://maps.googleapis.com/maps/api/staticmap?markers={{vm.service.gps_latitude}},{{vm.service.gps_longitude}}&size=480x270&zoom=16" alt=""/>
+                <button style="top: 16px" class="button button-outline button-assertive" ng-click="vm.getGpsCoordinates()">
+                    <i class="icon ion-location"></i>
+                </button>
             </div>
+
+            <label class="item item-light item-input item-select">
+                <span class="input-label">Service Type</span>
+                <select ng-model="vm.service.service_type_id" ng-options="serviceType.id as serviceType.name for serviceType in vm.serviceTypeList" value="vm.service.service_type_id">
+                    <option value="">Choose</option>
+                </select>
+            </label>
+
+            <label class="item item-light item-input item-floating-label">
+                <span class="input-label">Service Name</span>
+                <input type="text" placeholder="Service Name" ng-model="vm.service.name">
+            </label>
+
+            <label class="item item-light item-input item-floating-label">
+                <span class="input-label">Mobile</span>
+                <input type="text" placeholder="Mobile" ng-model="vm.service.mobile">
+            </label>
+
+            <label class="item item-light item-input item-floating-label">
+                <span class="input-label">Landline</span>
+                <input type="text" placeholder="Landline" ng-model="vm.service.landline">
+            </label>
+
+            <label class="item item-light item-input item-floating-label">
+                <span class="input-label">Address</span>
+                <textarea placeholder="Address" ng-model="vm.service.address" rows="3"></textarea>
+            </label>
+
+            <label class="item item-light item-input item-floating-label">
+                <span class="input-label">City</span>
+                <input type="text" placeholder="City" ng-model="vm.service.city">
+            </label>
+
+            <label class="item item-light item-input item-floating-label">
+                <span class="input-label">Zipcode/Pincode</span>
+                <input type="text" placeholder="Zipcode/Pincode" ng-model="vm.service.zipcode">
+            </label>
+
+            <label class="item">
+                <button class="button button-block button-outline button-positive" ng-click="vm.update()">Update</button>
+            </label>
+
+        </div>
 
     </ion-content>
 </ion-view>

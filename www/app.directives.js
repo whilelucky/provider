@@ -10,15 +10,15 @@
             scope: {
                 service: '=data'
             },
-            template: "" +
-                '<img src="http://lorempixel.com/50/50">' +
+            template: '' +
+                '<i class="icon {{service.service_type_icon}}"></i>' +
                 '<h2>{{service.name}}</h2>' +
                 '<p>{{service.address}}</p>' +
                 '<p>{{service.mobile}} | {{service.landline}}</p>' +
                 '<p>' +
                     '<i class="icon ion-location"></i> {{service.range | distance}}' +
                     '&nbsp;&nbsp;&nbsp;' +
-                    '<i class="icon ion-star"></i> {{service.rating}}/5' +
+                    '<i class="icon ion-star"></i> {{service.rating}}/5.00' +
                 '</p>'
         };
     }

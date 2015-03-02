@@ -2,26 +2,26 @@
     <ion-header-bar class="bar-assertive">
         <h1 class="title">Review</h1>
         <div class="buttons">
-            <button class="button" ng-click="vm.hideReviewForm()">Close</button>
+            <button class="button button-outline button-light" ng-click="vm.hideReviewForm()">Close</button>
         </div>
     </ion-header-bar>
     <ion-content>
         <div class="list">
 
-            <div class="item range range-energized">
+            <div class="item item-light range range-assertive">
                 <p>Rating</p>
                 <input type="range" ng-model="vm.review.rating" min="0" max="5">
                 <span class="item-note">{{vm.review.rating}}</span>
             </div>
 
-            <label class="item item-input item-floating-label">
+            <label class="item item-light item-input item-floating-label">
                 <span class="input-label">Tell us what you think</span>
                 <textarea placeholder="Tell us what you think" ng-model="vm.review.description" rows="5"></textarea>
             </label>
 
             <label class="item">
-                <button ng-if="!vm.hasReview" class="button button-block button-assertive" ng-click="vm.submitReview()">Submit</button>
-                <button ng-if="vm.hasReview" class="button button-block button-assertive" ng-click="vm.updateReview()">Update</button>
+                <button ng-if="!vm.hasReview" class="button button-block button-outline button-assertive" ng-click="vm.submitReview()">Submit</button>
+                <button ng-if="vm.hasReview" class="button button-block button-outline button-assertive" ng-click="vm.updateReview()">Update</button>
             </label>
 
         </div>
