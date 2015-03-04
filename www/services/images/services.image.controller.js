@@ -1,10 +1,10 @@
-(function() {
+(function () {
     'use strict';
 
     angular.module('provider')
         .controller('ServicesImageController', ServicesImageController);
 
-    function ServicesImageController ($scope, $state, $ionicActionSheet, ServicesService, ImagesService, CordovaService) {
+    function ServicesImageController($scope, $state, $ionicActionSheet, ServicesService, ImagesService, CordovaService) {
 
         var vm = this;
 
@@ -16,40 +16,40 @@
 
         activate();
 
-        function activate () {
+        function activate() {
             vm.service = ServicesService.service;
             getImagesList();
         }
 
-        function getImagesList () {
-            if($state.current.url === '/images') {
+        function getImagesList() {
+            if ($state.current.url === '/images') {
                 ImagesService.imagesList(vm.service)
-                    .then(function(images) {
+                    .then(function (images) {
                         vm.imagesList = images;
                     });
             }
-            else if($state.current.url === '/certificates') {
+            else if ($state.current.url === '/certificates') {
                 ImagesService.certificatesList(vm.service)
-                    .then(function(images) {
+                    .then(function (images) {
                         vm.imagesList = images;
                     });
             }
         }
 
-        function pickImages () {
+        function pickImages() {
             CordovaService.pickImages();
         }
 
-        function deleteImage (image) {
+        function deleteImage(image) {
             ImagesService.remove(image)
-                .then(getImageList);
+                .then(getImagesList);
         }
 
-        function showImageOptions (image) {
+        function showImageOptions(image) {
             $ionicActionSheet.show({
                 destructiveText: 'Delete',
-                destructiveButtonClicked: function() {
-                    if(confirm('Are you sure you want to delete this image?')) {
+                destructiveButtonClicked: function () {
+                    if (confirm('Are you sure you want to delete this image?')) {
                         deleteImage(image);
                     }
                     return true;
@@ -59,17 +59,17 @@
             });
         }
 
-        $scope.$on('images.picked', function(event, images) {
-            if($state.current.url === '/images') {
+        $scope.$on('images.picked', function (event, images) {
+            if ($state.current.url === '/images') {
                 CordovaService.uploadImages(vm.service, images, {});
             }
-            else if($state.current.url === '/certificates') {
+            else if ($state.current.url === '/certificates') {
                 CordovaService.uploadImages(vm.service, images, {certificate: 1});
             }
         });
 
-        $scope.$on('images.uploaded', function() {
-            getImageList();
+        $scope.$on('images.uploaded', function () {
+            getImagesList();
         });
 
     }

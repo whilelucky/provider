@@ -1,10 +1,10 @@
-(function() {
+(function () {
     'use strict';
 
     angular.module('provider')
         .controller('ServicesListController', ServicesListController);
 
-    function ServicesListController ($scope, $state, $ionicPopover, ServicesService) {
+    function ServicesListController($scope, $state, $ionicPopover, ServicesService) {
 
         var vm = this;
 
@@ -21,39 +21,39 @@
 
         $ionicPopover.fromTemplateUrl('explore/services.types.popover.html', {
             scope: $scope
-        }).then(function(popover) {
+        }).then(function (popover) {
             $scope.popover = popover;
         });
 
         activate();
 
-        function activate () {
+        function activate() {
             ServicesService.serviceTypeList()
-                .then(function(serviceTypeList) {
+                .then(function (serviceTypeList) {
                     vm.serviceTypeList = serviceTypeList;
                 });
             vm.range = 1000;
             refresh();
         }
 
-        function refresh () {
+        function refresh() {
             ServicesService.list()
-                .then(function(servicesList) {
+                .then(function (servicesList) {
                     vm.servicesList = servicesList;
                     $scope.$broadcast('scroll.refreshComplete')
                 });
         }
 
-        function showService (service) {
+        function showService(service) {
             ServicesService.service = service;
             $state.go('app.services.show', {id: service.id});
         }
 
-        function inRange (service) {
+        function inRange(service) {
             return service.range <= vm.range;
         }
 
-        function filterServiceType (serviceType) {
+        function filterServiceType(serviceType) {
             vm.filter.service_type_id = serviceType.id;
             vm.popoverIcon = serviceType.icon;
             $scope.popover.hide();

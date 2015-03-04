@@ -1,10 +1,10 @@
-(function() {
+(function () {
     'use strict';
 
     angular.module('provider')
         .controller('ServicesCreateEditController', ServicesCreateEditController);
 
-    function ServicesCreateEditController ($state, ServicesService, CordovaService) {
+    function ServicesCreateEditController($state, ServicesService, CordovaService) {
 
         var vm = this;
 
@@ -13,11 +13,11 @@
         vm.serviceTypeList = [];
         vm.submit = submit;
         vm.update = update;
-        vm.getGpsCoordinates = getGpsCoordinates;
+        vm.getGpsPosition = getGpsPosition;
 
         activate();
 
-        function activate () {
+        function activate() {
             vm.service = ServicesService.service;
             ServicesService.serviceTypeList()
                 .then(function (serviceTypeList) {
@@ -25,28 +25,25 @@
                 });
         }
 
-        function submit () {
-            CordovaService.getGpsCoordinates()
-                .then(function(position) {
-                    vm.newService.gps_latitude = position.coords.latitude;
-                    vm.newService.gps_longitude = position.coords.longitude;
-                    ServicesService.create(vm.newService)
-                        .then(function() {
-                            $state.go('app.services.my-services');
-                        });
-                });
-        }
-
-        function update () {
-            ServicesService.update(vm.service)
-                .then(function() {
+        function submit() {
+            ServicesService.create(vm.newService)
+                .then(function () {
                     $state.go('app.services.my-services');
                 });
         }
 
-        function getGpsCoordinates () {
-            CordovaService.getGpsCoordinates()
-                .then(function(position) {
+        function update() {
+            ServicesService.update(vm.service)
+                .then(function () {
+                    $state.go('app.services.my-services');
+                });
+        }
+
+        function getGpsPosition() {
+            CordovaService.getGpsPosition()
+                .then(function (position) {
+                    vm.newService.gps_latitude = position.coords.latitude;
+                    vm.newService.gps_longitude = position.coords.longitude;
                     vm.service.gps_latitude = position.coords.latitude;
                     vm.service.gps_longitude = position.coords.longitude;
                 });

@@ -1,13 +1,12 @@
-(function() {
+(function () {
     'use strict';
 
     angular.module('provider')
         .service('AuthenticationService', AuthenticationService);
 
-    function AuthenticationService ($state, $rootScope, Restangular, AlertsService) {
+    function AuthenticationService($state, $rootScope, localStorageService, Restangular, AlertsService) {
 
-        this.user = {id: "1", gps_latitude: "12.905226", gps_longitude: "77.564661"};
-//        this.user = {};
+        this.user = {};
         this.login = login;
         this.logout = logout;
         this.create = create;
@@ -17,42 +16,45 @@
         var parent = this;
         var _authenticationService = Restangular;
 
-        function login (user) {
-            _authenticationService.one('login').post(null, user)
+        function login(user) {
+            return _authenticationService.one('login').post(null, user)
                 .then(function (response) {
-                    if(response.success) {
+                    if (response.success) {
+                        localStorageService.set('user', response.user);
                         parent.user = response.user;
-                        $state.go('app.explore');
+                        return;
                     }
                     else {
                         AlertsService.error(response.alert);
+                        throw response;
                     }
                 });
         }
 
-        function logout () {
-//            _authenticationService.one('logout').get()
-//                .then(function (response) {
-//                    if(response.success) {
+        function logout() {
+            return _authenticationService.one('logout').get()
+                .then(function (response) {
+                    if (response.success) {
+                        localStorageService.remove('user');
                         parent.user = {};
-                        $state.go('login');
-                        AlertsService.success('Logged out');
-//                    }
-//                    else {
-//                        AlertsService.error(response.alert);
-//                    }
-//                })
+                        return;
+                    }
+                    else {
+                        AlertsService.error(response.alert);
+                        throw response;
+                    }
+                });
         }
 
-        function create (user) {
-            if(user.password !== user.repeat_password) {
+        function create(user) {
+            if (user.password !== user.repeat_password) {
                 AlertsService.error('Password mismatch');
                 throw {};
             }
             else {
                 return _authenticationService.all('users').post(user)
                     .then(function (response) {
-                        if(response.success) {
+                        if (response.success) {
                             AlertsService.success(response.alert);
                             return;
                         }
@@ -64,10 +66,10 @@
             }
         }
 
-        function update (user) {
+        function update(user) {
             _authenticationService.all('users').one(user.id).put(user)
                 .then(function (response) {
-                    if(response.success) {
+                    if (response.success) {
                         parent.user = response.user;
                         $rootScope.$broadcast('user.update');
                         AlertsService.success(response.alert);
@@ -79,7 +81,8 @@
         }
 
         function checkUser(event, toState) {
-            if( (toState.url !== 'login' && toState.url !== 'register') && _.isEmpty(parent.user)) {
+            parent.user = localStorageService.get('user');
+            if ((toState.url !== 'login') && _.isEmpty(parent.user)) {
                 $state.go('login');
 //                AlertsService.success('Please Login');
 //                event.preventDefault();

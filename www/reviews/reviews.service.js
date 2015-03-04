@@ -1,10 +1,10 @@
-(function() {
+(function () {
     'use strict';
 
     angular.module('provider')
         .service('ReviewsService', ReviewsService);
 
-    function ReviewsService (Restangular, ServicesService, AuthenticationService, AlertsService) {
+    function ReviewsService(Restangular, ServicesService, AuthenticationService, AlertsService) {
 
         var _reviewsService = Restangular.all('services');
 
@@ -13,15 +13,15 @@
         this.update = update;
         this.remove = remove;
 
-        function list () {
+        function list() {
             return _reviewsService.one(ServicesService.service.id).all('reviews').getList();
         }
 
-        function create (review) {
+        function create(review) {
             review.user_id = AuthenticationService.user.id;
             return _reviewsService.one(ServicesService.service.id).all('reviews').post(review)
-                .then(function(response) {
-                    if(response.success) {
+                .then(function (response) {
+                    if (response.success) {
                         AlertsService.success(response.alert);
                         return;
                     }
@@ -32,10 +32,10 @@
                 });
         }
 
-        function update (review) {
+        function update(review) {
             return review.put()
-                .then(function(response) {
-                    if(response.success) {
+                .then(function (response) {
+                    if (response.success) {
                         AlertsService.success(response.alert);
                         return;
                     }
@@ -46,10 +46,10 @@
                 });
         }
 
-        function remove (review) {
+        function remove(review) {
             return review.remove()
-                .then(function(response) {
-                    if(response.success) {
+                .then(function (response) {
+                    if (response.success) {
                         AlertsService.success(response.alert);
                         return;
                     }

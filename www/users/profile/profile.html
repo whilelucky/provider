@@ -9,12 +9,7 @@
         <div class="list">
 
 
-            <div class="item item-image item-button-right">
-                <img ng-src="https://maps.googleapis.com/maps/api/staticmap?markers={{vm.user.gps_latitude}},{{vm.user.gps_longitude}}&size=480x270&zoom=16" alt="position on map"/>
-                <button style="top: 16px" class="button button-outline button-assertive" ng-click="vm.getGpsCoordinates()">
-                    <i class="icon ion-location"></i>
-                </button>
-            </div>
+            <gps-pos-finder data="vm.user" get-gps-position="vm.getGpsPosition()"></gps-pos-finder>
 
             <label class="item item-light item-input item-floating-label">
                 <span class="input-label">First Name</span>

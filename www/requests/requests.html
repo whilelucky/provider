@@ -6,11 +6,15 @@
             <ion-header-bar></ion-header-bar>
             <ion-content has-bouncing="true">
 
-                <div class="list list-inset" ng-repeat="sentRequest in vm.sentRequestsList">
+                <ion-refresher
+                        pulling-text="Pull to refresh..."
+                        on-refresh="vm.getSentRequests()">
+                </ion-refresher>
 
-                    <div class="item item-light item-text-wrap service-details">
-                        <!--<i class="icon {{sentRequest.service.service_type_icon}}"></i>-->
-                        <i class="icon ion-flash"></i>
+                <div class="list list-inset" ng-repeat="sentRequest in vm.sentRequestsList | orderBy:'-updated_at'">
+
+                    <div class="item item-light item-text-wrap service-details request-details" ng-class="sentRequest.status">
+                        <i class="icon {{sentRequest.service.service_type_icon}}"></i>
                         <h2>{{sentRequest.service.name}}</h2>
                         <p>{{sentRequest.service.address}}</p>
                         <p>{{sentRequest.service.mobile}} | {{sentRequest.service.landline}}</p>
@@ -19,12 +23,9 @@
                             &nbsp;&nbsp;&nbsp;
                             <i class="icon ion-star"></i> {{sentRequest.service.rating}}/5.00
                         </p>
-                        <div class="button-bar" style="margin-top: 15px">
-                            <button ng-if="sentRequest.status === 'pending'" class="button button-block button-small button-energized">Pending</button>
-                            <button ng-if="sentRequest.status === 'accepted'" class="button button-block button-small button-balanced">Accepted</button>
-                            <button ng-if="sentRequest.status === 'declined'" class="button button-block button-small button-assertive">Declined</button>
-                        </div>
-                        <button class="button button-clear button-assertive icon ion-android-close service-close-button" ng-click="vm.cancelRequest(sentRequest)"></button>
+                        <p><i class="icon ion-clipboard"></i> {{sentRequest.status | capitalize}}</p>
+
+                        <button class="button button-clear button-dark icon ion-android-close service-close-button" ng-click="vm.cancelRequest(sentRequest)"></button>
                     </div>
 
                 </div>
@@ -37,22 +38,27 @@
             <ion-header-bar></ion-header-bar>
             <ion-content has-bouncing="true">
 
-                <div class="list list-inset" ng-repeat="receivedRequest in vm.receivedRequestsList">
+                <ion-refresher
+                        pulling-text="Pull to refresh..."
+                        on-refresh="vm.getReceivedRequests()">
+                </ion-refresher>
 
-                    <div class="item item-thumbnail-left item-light item-text-wrap service-details">
-                        <img src="http://lorempixel.com/50/50">
-                        <h2>{{receivedRequest.user.first_name}} {{receivedRequest.user.last_name}}</h2>
+                <div class="list list-inset" ng-repeat="receivedRequest in vm.receivedRequestsList | orderBy: '-created_at'">
+
+                    <div class="item item-light item-text-wrap request-details" ng-class="receivedRequest.status">
+                        <h2>{{receivedRequest.user.first_name | capitalize}} {{receivedRequest.user.last_name | capitalize}} - {{receivedRequest.service_name}}</h2>
                         <p>{{receivedRequest.user.address}}</p>
                         <p>{{receivedRequest.user.mobile}} | {{receivedRequest.user.landline}}</p>
-                        <p><i class="icon ion-location"></i> {{service.range | distance}}</p>
-                        <p>{{receivedRequest.service_name}}</p>
-                    </div>
+                        <p>
+                            <i class="icon ion-location"></i> {{receivedRequest.user.range | distance}}
+                            &nbsp;&nbsp;&nbsp;
+                            <i class="icon ion-clipboard"></i> {{receivedRequest.status | capitalize}}
+                        </p>
 
-                    <div class="item button-bar">
-                        <button ng-if="receivedRequest.status === 'accepted'" class="button button-small button-clear button-balanced">Accepted</button>
-                        <button ng-hide="receivedRequest.status === 'accepted'" class="button button-small button-outline button-balanced" ng-click="vm.acceptRequest(receivedRequest)">Accept</button>
-                        <button ng-if="receivedRequest.status === 'declined'" class="button button-small button-clear button-assertive">Declined</button>
-                        <button ng-hide="receivedRequest.status === 'declined'" class="button button-small button-outline button-assertive" ng-click="vm.declineRequest(receivedRequest)">Decline</button>
+                        <div class="button-bar">
+                            <button ng-if="receivedRequest.status !== 'accepted'" class="button button-block button-small button-dark-light" ng-click="vm.acceptRequest(receivedRequest)">Accept</button>
+                            <button ng-if="receivedRequest.status !== 'declined'" class="button button-block button-small button-dark-light" ng-click="vm.declineRequest(receivedRequest)">Decline</button>
+                        </div>
                     </div>
 
                 </div>

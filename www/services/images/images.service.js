@@ -1,10 +1,10 @@
-(function() {
+(function () {
     'use strict';
 
     angular.module('provider')
         .service('ImagesService', ImagesService);
 
-    function ImagesService (Restangular, AlertsService) {
+    function ImagesService(Restangular, AlertsService) {
 
         var _imagesService = Restangular.all('services');
 
@@ -12,18 +12,18 @@
         this.certificatesList = certificatesList;
         this.remove = remove;
 
-        function imagesList (service) {
+        function imagesList(service) {
             return _imagesService.one(service.id).all('images').getList();
         }
 
-        function certificatesList (service) {
+        function certificatesList(service) {
             return _imagesService.one(service.id).all('images').getList({certificates: true});
         }
 
-        function remove (image) {
+        function remove(image) {
             return image.remove()
-                .then(function(response) {
-                    if(response.success) {
+                .then(function (response) {
+                    if (response.success) {
                         AlertsService.success(response.alert);
                         return;
                     }

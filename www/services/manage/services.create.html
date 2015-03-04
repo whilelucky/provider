@@ -4,6 +4,8 @@
 
         <div class="list">
 
+            <gps-pos-finder data="vm.newService" get-gps-position="vm.getGpsPosition()"></gps-pos-finder>
+
             <label class="item item-light item-input item-select">
                 <span class="input-label">Service Type</span>
                 <select ng-model="vm.newService.service_type_id" ng-options="serviceType.id as serviceType.name for serviceType in vm.serviceTypeList">

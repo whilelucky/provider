@@ -1,49 +1,61 @@
-(function() {
+(function () {
     'use strict';
 
     angular.module('provider')
         .controller('RequestsController', RequestsController);
 
-    function RequestsController ($scope, RequestsService) {
+    function RequestsController($scope, RequestsService) {
 
         var vm = this;
 
         vm.sentRequestsList = [];
         vm.receivedRequestsList = [];
+        vm.getSentRequests = getSentRequests;
+        vm.getReceivedRequests = getReceivedRequests;
         vm.acceptRequest = acceptRequest;
         vm.declineRequest = declineRequest;
         vm.cancelRequest = cancelRequest;
 
-        activate();
+//        activate();
 
-        function activate () {
-            RequestsService.sentRequests()
-                .then(function(sentRequestsList) {
-                    vm.sentRequestsList = sentRequestsList;
-                });
-            RequestsService.receivedRequests()
-                .then(function(receivedRequestsList) {
-                    vm.receivedRequestsList = receivedRequestsList;
-                });
+        function activate() {
+            getSentRequests();
+            getReceivedRequests();
         }
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.enter', function () {
             activate();
         });
 
-        function acceptRequest (request) {
+        function getSentRequests() {
+            RequestsService.sentRequests()
+                .then(function (sentRequestsList) {
+                    vm.sentRequestsList = sentRequestsList;
+                    $scope.$broadcast('scroll.refreshComplete')
+                });
+        }
+
+        function getReceivedRequests() {
+            RequestsService.receivedRequests()
+                .then(function (receivedRequestsList) {
+                    vm.receivedRequestsList = receivedRequestsList;
+                    $scope.$broadcast('scroll.refreshComplete')
+                });
+        }
+
+        function acceptRequest(request) {
             RequestsService.accept(request)
-                .then(activate);
+                .then(getReceivedRequests);
         }
 
-        function declineRequest (request) {
+        function declineRequest(request) {
             RequestsService.decline(request)
-                .then(activate);
+                .then(getReceivedRequests);
         }
 
-        function cancelRequest (request) {
+        function cancelRequest(request) {
             RequestsService.remove(request)
-                .then(activate);
+                .then(getSentRequests);
         }
 
     }

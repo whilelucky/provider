@@ -1,9 +1,10 @@
-(function() {
+(function () {
     'use strict';
 
     angular.module('provider', [
         'ionic',
         'ngCordova',
+        'LocalStorageModule',
         'toastr',
         'angular-loading-bar',
         'restangular'
@@ -12,8 +13,8 @@
     angular.module('provider')
         .run(run);
 
-    function run ($ionicPlatform, $rootScope, AuthenticationService) {
-        $ionicPlatform.ready(function() {
+    function run($ionicPlatform, $rootScope, AuthenticationService) {
+        $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
             if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -25,7 +26,7 @@
             }
         });
 
-        $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+        $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
             AuthenticationService.checkUser(event, toState);
         });
     }

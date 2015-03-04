@@ -1,27 +1,39 @@
-<ion-view hide-nav-bar="true" cache-view="false">
-    <ion-content class="white-page">
+<ion-view hide-nav-bar="true" cache-view="false" class="login-page">
+    <ion-content>
+
         <div class="list">
-            <div class="item">
+            <div class="item item-borderless login-title">
                 <br/><br/><br/><br/>
                 <h1 class="text-center">Provider</h1>
                 <p class="text-center">The only one you'll ever need</p>
             </div>
+        </div>
+
+        <div class="list list-inset">
+
             <form ng-submit="vm.login()">
-                <label class="item item-input">
-                    <span class="input-label">Email</span>
-                    <input type="text" ng-model="vm.user.email">
+                <label class="item item-borderless item-input">
+                    <!--<span class="input-label">Email</span>-->
+                    <input type="text" placeholder="Email" ng-model="vm.user.email" class="text-center">
                 </label>
-                <label class="item item-input">
-                    <span class="input-label">Password</span>
-                    <input type="password" ng-model="vm.user.password">
+                <label class="item item-borderless item-input">
+                    <!--<span class="input-label">Password</span>-->
+                    <input type="password" placeholder="Password" ng-model="vm.user.password" class="text-center">
                 </label>
-                <label class="item">
-                    <button class="button button-block button-dark" type="submit">Log in</button>
+                <label class="item item-borderless">
+                    <button class="button button-block button-outline button-positive" type="submit">Log in</button>
                 </label>
             </form>
+
             <div class="item item-borderless">
                 <button ng-click="vm.showRegisterForm()" class="button button-block button-outline button-balanced">Register</button>
             </div>
+
         </div>
+
+        <!--<div class="list">-->
+            <!---->
+        <!--</div>-->
+
     </ion-content>
 </ion-view>

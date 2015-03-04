@@ -2,12 +2,17 @@ ion-content {
     background-color: #ECF0F1 !important;
 }
 
-.white-page {
-    background-color: #ffffff !important;
+.login-page ion-content,
+.login-page .list,
+.login-page .item{
+    background-color: #34495e !important;
+}
+.login-page *:not(.button-assertive):not(.icon) {
+    color: #fff !important;
 }
 
 .service-details {
-    padding: 25px 15px 25px 100px;
+    padding: 25px 15px 25px 100px !important;
     line-height: 1.5em;
 }
 .service-details>.icon:first-child {
@@ -18,12 +23,38 @@ ion-content {
     left: 23px;
     top: 40px;
 }
+.service-close-button {
+    position: absolute;
+    top: 0;
+    right: -6px;
+}
 .service-details img {
+    left: 23px !important;
     top: 40px !important;
+    max-height: 60px !important;
+    max-width: 60px !important;
 }
 
 .service-images {
     margin: 10px;
+}
+
+.request-details {
+    padding: 25px 15px 25px 15px;
+    line-height: 1.5em;
+}
+
+.request-details.accepted {
+    border-color: rgba(20, 143, 119, 0.25);
+    background-color: rgba(26, 188, 156, 0.25);
+}
+.request-details.pending {
+    border-color: rgba(218, 177, 13, 0.25);
+    background-color: rgba(241, 196, 15, 0.25);
+}
+.request-details.declined {
+    border-color: rgba(214, 42, 26, 0.25);
+    background-color: rgba(231, 76, 60, 0.25);
 }
 
 .review-item .row{
@@ -35,11 +66,11 @@ ion-content {
     margin: 1px;
 }
 
-.service-close-button {
-    position: absolute;
-    top: 0;
-    right: -6px;
+.button-dark-light {
+    border-color: rgba(17, 17, 17, 0.15);
+    background-color: rgba(52, 73, 94, 0.15);
 }
+
 
 /*overrinding angular-toastr*/
 
@@ -69,4 +100,22 @@ ion-content {
 
 .slider-pager .slider-pager-page {
     font-size: 10px;
+}
+
+/*overriding angular-toastr*/
+
+.toast-success {
+    background-color: #1abc9c;
+}
+
+.toast-warning {
+    background-color: #f1c40f;
+}
+
+.toast-error {
+    background-color: #e74c3c;
+}
+
+.toast-info {
+    background-color: #3498db;
 }

@@ -1,8 +1,8 @@
-<div class="list item-text-wrap">
+<ion-list class="item-text-wrap">
 
     <div class="item item-dark item-divider">Reviews</div>
 
-    <div class="item item-light review-item" ng-repeat="review in vm.reviewsList">
+    <ion-item class="item-light review-item" ng-repeat="review in vm.reviewsList">
         <div class="row">
             <h2 class="col col-80">{{review.user_name}}</h2>
             <p class="col col-20">{{review.rating}}/5</p>
@@ -10,6 +10,6 @@
         <div class="row">
             <p class="col">{{review.description}}</p>
         </div>
-    </div>
+    </ion-item>
 
-</div>
+</ion-list>

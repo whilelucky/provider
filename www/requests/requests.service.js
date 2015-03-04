@@ -1,10 +1,10 @@
-(function() {
+(function () {
     'use strict';
 
     angular.module('provider')
         .service('RequestsService', RequestsService);
 
-    function RequestsService (Restangular, AlertsService, AuthenticationService) {
+    function RequestsService(Restangular, AlertsService, AuthenticationService) {
 
         var _requestsService = Restangular.all('requests');
 
@@ -16,39 +16,47 @@
         this.remove = remove;
 
 
-        function sentRequests () {
+        function sentRequests() {
             return _requestsService.getList({sent_requests: true, user_id: AuthenticationService.user.id});
         }
 
-        function receivedRequests () {
+        function receivedRequests() {
             return _requestsService.getList({received_requests: true, user_id: AuthenticationService.user.id});
         }
 
-        function accept (request) {
+        function accept(request) {
             request.status = 'accepted';
             return request.put()
                 .then(function (response) {
-                    if(response.success) {
+                    if (response.success) {
                         return;
+                    }
+                    else {
+                        AlertService.error('Failed to accept request');
+                        throw response;
                     }
                 });
         }
 
-        function decline (request) {
+        function decline(request) {
             request.status = 'declined';
             return request.put()
                 .then(function (response) {
-                    if(response.success) {
+                    if (response.success) {
                         return;
+                    }
+                    else {
+                        AlertService.error('Failed to decline request');
+                        throw response;
                     }
                 });
         }
 
-        function create (request) {
+        function create(request) {
             request.user_id = AuthenticationService.user.id;
             return _requestsService.post(request)
                 .then(function (response) {
-                    if(response.success) {
+                    if (response.success) {
                         AlertsService.success(response.alert);
                         return;
                     }
@@ -59,10 +67,10 @@
                 });
         }
 
-        function remove (request) {
+        function remove(request) {
             return _requestsService.one(request.id).remove()
                 .then(function (response) {
-                    if(response.success) {
+                    if (response.success) {
                         AlertsService.success(response.alert);
                         return;
                     }

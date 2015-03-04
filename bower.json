@@ -15,7 +15,8 @@
     "angular-toastr": "~1.0.1",
     "ngCordova": "~0.1.12-alpha",
     "angular-loading-bar": "~0.7.1",
-    "ionicons": "~2.0.1"
+    "ionicons": "~2.0.1",
+    "angular-local-storage": "~0.1.5"
   },
   "homepage": "https://github.com/lakshya93/provider"
 }
