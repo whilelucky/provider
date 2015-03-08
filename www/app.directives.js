@@ -41,7 +41,7 @@
 
         directive.template = '' +
             '<div class="item item-borderless item-image item-button-right">' +
-            '<img ng-src="https://maps.googleapis.com/maps/api/staticmap?markers={{data.gps_latitude}},{{data.gps_longitude}}&size=480x270&zoom=16" alt="" style="min-height: 70px"/>' +
+            '<img ng-src="https://maps.googleapis.com/maps/api/staticmap?markers=color:0x1abc9c|{{data.gps_latitude}},{{data.gps_longitude}}&size=480x270&zoom=16" alt="" style="min-height: 70px"/>' +
             '<button style="top: 16px; padding: 0 6px;" class="button button-outline button-assertive" ng-click="getGpsPosition()">' +
             '<i class="icon ion-android-locate"></i>' +
             '</button>' +

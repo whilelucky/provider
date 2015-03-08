@@ -13,7 +13,7 @@
         vm.serviceTypeList = [];
         vm.range = 0;
         vm.filter = {};
-        vm.popoverIcon = 'ion-funnel';
+        vm.popoverIcon = 'ion-android-funnel';
         vm.inRange = inRange;
         vm.refresh = refresh;
         vm.filterServiceType = filterServiceType;

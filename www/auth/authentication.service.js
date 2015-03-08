@@ -4,7 +4,7 @@
     angular.module('provider')
         .service('AuthenticationService', AuthenticationService);
 
-    function AuthenticationService($state, $rootScope, localStorageService, Restangular, AlertsService) {
+    function AuthenticationService($state, localStorageService, Restangular, AlertsService) {
 
         this.user = {};
         this.login = login;
@@ -70,12 +70,14 @@
             _authenticationService.all('users').one(user.id).put(user)
                 .then(function (response) {
                     if (response.success) {
+                        localStorageService.set('user', response.user);
                         parent.user = response.user;
-                        $rootScope.$broadcast('user.update');
                         AlertsService.success(response.alert);
+                        return;
                     }
                     else {
                         AlertsService.error(response.alert);
+                        throw response;
                     }
                 });
         }

@@ -8,6 +8,7 @@
 
         var vm = this;
 
+        vm.user = {};
         vm.service = {};
         vm.review = {rating: "0"};
         vm.reviewsList = [];
@@ -27,6 +28,7 @@
         activate();
 
         function activate() {
+            vm.user = AuthenticationService.user;
             vm.service = ServicesService.service;
             vm.hasReview = false;
             getReviews();
@@ -71,7 +73,7 @@
 
         function findUserReview() {
             angular.forEach(vm.reviewsList, function (review) {
-                if (review.user_id === AuthenticationService.user.id) {
+                if (review.user_id === vm.user.id) {
                     vm.review = review;
                     vm.hasReview = true;
                 }

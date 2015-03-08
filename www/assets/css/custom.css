@@ -2,12 +2,13 @@ ion-content {
     background-color: #ECF0F1 !important;
 }
 
-.login-page ion-content,
-.login-page .list,
-.login-page .item{
+.dark-page ion-content,
+.dark-page .list,
+.dark-page .item,
+.dark-page input{
     background-color: #34495e !important;
 }
-.login-page *:not(.button-assertive):not(.icon) {
+.dark-page *:not(.button-assertive):not(.icon) {
     color: #fff !important;
 }
 

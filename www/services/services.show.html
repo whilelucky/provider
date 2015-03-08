@@ -6,9 +6,9 @@
             <service-details data="vm.service" class="item item-light item-text-wrap service-details"></service-details>
 
             <div class="item item-image">
-                <ion-slide-box>
+                <ion-slide-box does-continue="true">
                     <ion-slide>
-                        <img ng-src="https://maps.googleapis.com/maps/api/staticmap?markers={{vm.service.gps_latitude}},{{vm.service.gps_longitude}}&size=400x300&zoom=16" alt=""/>
+                        <img ng-src="https://maps.googleapis.com/maps/api/staticmap?markers=color:0x1abc9c|{{vm.user.gps_latitude}},{{vm.user.gps_longitude}}&markers=color:0x34495e|{{vm.service.gps_latitude}},{{vm.service.gps_longitude}}&size=400x300" alt=""/>
                     </ion-slide>
                     <ion-slide ng-repeat="serviceImage in vm.service.images">
                         <img ng-src="http://provider.creativevortex.in/public/uploads/images/{{serviceImage.image}}">

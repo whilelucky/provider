@@ -40,7 +40,7 @@
     function capitalize() {
         return function (input) {
             input = input.toLowerCase();
-            return input.substring(0, 1).toUpperCase() + input.substring(1);
+            return input.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
         }
     }
 

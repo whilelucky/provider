@@ -17,7 +17,7 @@
                         <i class="icon {{sentRequest.service.service_type_icon}}"></i>
                         <h2>{{sentRequest.service.name}}</h2>
                         <p>{{sentRequest.service.address}}</p>
-                        <p>{{sentRequest.service.mobile}} | {{sentRequest.service.landline}}</p>
+                        <p>{{sentRequest.service.mobile}}, {{sentRequest.service.landline}}</p>
                         <p>
                             <i class="icon ion-location"></i> {{sentRequest.service.range | distance}}
                             &nbsp;&nbsp;&nbsp;
@@ -48,14 +48,14 @@
                     <div class="item item-light item-text-wrap request-details" ng-class="receivedRequest.status">
                         <h2>{{receivedRequest.user.first_name | capitalize}} {{receivedRequest.user.last_name | capitalize}} - {{receivedRequest.service_name}}</h2>
                         <p>{{receivedRequest.user.address}}</p>
-                        <p>{{receivedRequest.user.mobile}} | {{receivedRequest.user.landline}}</p>
+                        <p>{{receivedRequest.user.mobile}}, {{receivedRequest.user.landline}}</p>
                         <p>
                             <i class="icon ion-location"></i> {{receivedRequest.user.range | distance}}
                             &nbsp;&nbsp;&nbsp;
                             <i class="icon ion-clipboard"></i> {{receivedRequest.status | capitalize}}
                         </p>
 
-                        <div class="button-bar">
+                        <div class="button-bar" style="margin-top: 15px;">
                             <button ng-if="receivedRequest.status !== 'accepted'" class="button button-block button-small button-dark-light" ng-click="vm.acceptRequest(receivedRequest)">Accept</button>
                             <button ng-if="receivedRequest.status !== 'declined'" class="button button-block button-small button-dark-light" ng-click="vm.declineRequest(receivedRequest)">Decline</button>
                         </div>
