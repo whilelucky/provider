@@ -18,5 +18,15 @@
     "https://github.com/wymsee/cordova-imagePicker.git",
     "org.apache.cordova.file-transfer",
     "org.apache.cordova.geolocation"
-  ]
+  ],
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:lakshyaranganath/provider.git"
+  },
+  "author": "",
+  "license": "ISC"
 }

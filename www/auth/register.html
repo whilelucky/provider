@@ -6,32 +6,34 @@
         </div>
     </ion-header-bar>
     <ion-content has-bouncing="true">
-            <div class="list">
+            <div class="list form-center">
 
                 <gps-pos-finder data="vm.user" get-gps-position="vm.getGpsPosition()"></gps-pos-finder>
 
-                <label class="item item-borderless item-light item-input item-floating-label">
-                    <span class="input-label">First Name</span>
+                <br/>
+
+                <label class="item item-borderless item-light">
+                    <!--<span class="input-label">First Name</span>-->
                     <input type="text" placeholder="First Name" ng-model="vm.user.first_name">
                 </label>
 
-                <label class="item item-borderless item-light item-input item-floating-label">
-                    <span class="input-label">Last Name</span>
+                <label class="item item-borderless item-light">
+                    <!--<span class="input-label">Last Name</span>-->
                     <input type="text" placeholder="Last Name" ng-model="vm.user.last_name">
                 </label>
 
-                <label class="item item-borderless item-light item-input item-floating-label">
-                    <span class="input-label">Email</span>
+                <label class="item item-borderless item-light">
+                    <!--<span class="input-label">Email</span>-->
                     <input type="text" placeholder="Email" ng-model="vm.user.email">
                 </label>
 
-                <label class="item item-borderless item-light item-input item-floating-label">
-                    <span class="input-label">Password</span>
+                <label class="item item-borderless item-light">
+                    <!--<span class="input-label">Password</span>-->
                     <input type="password" placeholder="Password" ng-model="vm.user.password">
                 </label>
 
-                <label class="item item-borderless item-light item-input item-floating-label">
-                    <span class="input-label">Repeat Password</span>
+                <label class="item item-borderless item-light">
+                    <!--<span class="input-label">Repeat Password</span>-->
                     <input type="password" placeholder="Repeat Password" ng-model="vm.user.repeat_password">
                 </label>
 

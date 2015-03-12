@@ -2,7 +2,7 @@
   "name": "provider",
   "private": true,
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.0.0-beta.14"
+    "ionic": "driftyco/ionic-bower#master"
   },
   "version": "0.0.0",
   "main": "index.html",
@@ -18,5 +18,5 @@
     "ionicons": "~2.0.1",
     "angular-local-storage": "~0.1.5"
   },
-  "homepage": "https://github.com/lakshya93/provider"
+  "homepage": "NA"
 }

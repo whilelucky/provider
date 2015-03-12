@@ -15,7 +15,7 @@
             on-refresh="vm.refresh()">
         </ion-refresher>
 
-        <div class="list list-inset" ng-repeat="service in vm.servicesList | orderBy:'range' | filter:vm.filter | filter:vm.inRange">
+        <div class="list list-inset service-list" collection-repeat="service in vm.servicesList | orderBy:'range' | filter:vm.filter | filter:vm.inRange">
             <service-details data="service" class="item item-light service-details" ng-click="vm.showService(service)"></service-details>
         </div>
 

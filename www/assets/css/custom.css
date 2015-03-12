@@ -12,6 +12,16 @@ ion-content {
     color: #fff !important;
 }
 
+.form-center input {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.service-list {
+    padding-bottom: 20px;
+    background-color: transparent;
+}
+
 .service-details {
     padding: 25px 15px 25px 100px !important;
     line-height: 1.5em;
@@ -97,11 +107,16 @@ ion-content {
     height: 4px;
 }
 
-/*overriding ion-slide pager*/
+/*overriding ionic config css*/
 
 .slider-pager .slider-pager-page {
     font-size: 10px;
 }
+
+.spinner-android {
+    stroke: #1abc9c;
+}
+
 
 /*overriding angular-toastr*/
 

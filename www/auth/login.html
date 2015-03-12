@@ -11,18 +11,18 @@
 
         <div class="list list-inset">
 
-            <form ng-submit="vm.login()">
+            <form ng-submit="vm.login()" class="form-center">
+
                 <label class="item item-borderless">
-                    <!--<span class="input-label">Email</span>-->
                     <input type="text" placeholder="Email" ng-model="vm.user.email" class="text-center">
                 </label>
                 <label class="item item-borderless">
-                    <!--<span class="input-label">Password</span>-->
                     <input type="password" placeholder="Password" ng-model="vm.user.password" class="text-center">
                 </label>
                 <label class="item item-borderless">
                     <button class="button button-block button-outline button-positive" type="submit">Log in</button>
                 </label>
+
             </form>
 
             <div class="item item-borderless">
