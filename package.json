@@ -1,7 +1,7 @@
 {
   "name": "provider",
   "version": "1.0.0",
-  "description": "provider: An Ionic project",
+  "description": "Provider: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^0.7.1",

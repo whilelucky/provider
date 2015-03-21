@@ -4,7 +4,7 @@
     angular.module('provider')
         .service('ReviewsService', ReviewsService);
 
-    function ReviewsService(Restangular, ServicesService, AuthenticationService, AlertsService) {
+    function ReviewsService(Restangular, LaboursService, AuthenticationService, AlertsService) {
 
         var _reviewsService = Restangular.all('services');
 
@@ -14,12 +14,12 @@
         this.remove = remove;
 
         function list() {
-            return _reviewsService.one(ServicesService.service.id).all('reviews').getList();
+            return _reviewsService.one(LaboursService.labour.id).all('reviews').getList();
         }
 
         function create(review) {
             review.user_id = AuthenticationService.user.id;
-            return _reviewsService.one(ServicesService.service.id).all('reviews').post(review)
+            return _reviewsService.one(LaboursService.labour.id).all('reviews').post(review)
                 .then(function (response) {
                     if (response.success) {
                         AlertsService.success(response.alert);

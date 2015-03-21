@@ -6,40 +6,79 @@
         </div>
     </ion-header-bar>
     <ion-content has-bouncing="true">
-            <div class="list form-center">
 
-                <gps-pos-finder data="vm.user" get-gps-position="vm.getGpsPosition()"></gps-pos-finder>
+        <div class="list form-center">
 
-                <br/>
+            <gps-pos-finder data="vm.user" get-gps-position="vm.getGpsPosition()"></gps-pos-finder>
+
+            <br/>
+
+            <form name="form" ng-submit="vm.register()">
 
                 <label class="item item-borderless item-light">
                     <!--<span class="input-label">First Name</span>-->
-                    <input type="text" placeholder="First Name" ng-model="vm.user.first_name">
+                    <input type="text" name="first_name" placeholder="First Name" ng-model="vm.user.first_name" required>
+                    <ng-messages ng-if="form.first_name.$dirty" for="form.first_name.$error" ng-messages-include="common/form.validation.html" class="text-error"></ng-messages>
                 </label>
 
                 <label class="item item-borderless item-light">
                     <!--<span class="input-label">Last Name</span>-->
-                    <input type="text" placeholder="Last Name" ng-model="vm.user.last_name">
+                    <input type="text" name="last_name" placeholder="Last Name" ng-model="vm.user.last_name" required>
+                    <ng-messages ng-if="form.last_name.$dirty" for="form.last_name.$error" ng-messages-include="common/form.validation.html" class="text-error"></ng-messages>
                 </label>
 
                 <label class="item item-borderless item-light">
                     <!--<span class="input-label">Email</span>-->
-                    <input type="text" placeholder="Email" ng-model="vm.user.email">
+                    <input type="email" name="email" placeholder="Email" ng-model="vm.user.email" required>
+                    <ng-messages ng-if="form.email.$dirty" for="form.email.$error" ng-messages-include="common/form.validation.html" class="text-error"></ng-messages>
                 </label>
 
                 <label class="item item-borderless item-light">
                     <!--<span class="input-label">Password</span>-->
-                    <input type="password" placeholder="Password" ng-model="vm.user.password">
+                    <input type="password" name="password" placeholder="Password" ng-model="vm.user.password" required minlength="3">
+                    <ng-messages ng-if="form.password.$dirty" for="form.password.$error" ng-messages-include="common/form.validation.html" class="text-error"></ng-messages>
                 </label>
 
                 <label class="item item-borderless item-light">
                     <!--<span class="input-label">Repeat Password</span>-->
-                    <input type="password" placeholder="Repeat Password" ng-model="vm.user.repeat_password">
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" ng-model="vm.user.confirm_password" required minlength="3">
+                    <ng-messages ng-if="form.confirm_password.$dirty" for="form.confirm_password.$error" ng-messages-include="common/form.validation.html" class="text-error"></ng-messages>
+                </label>
+
+                <label class="item item-borderless item-light">
+                    <!--<span class="input-label">Mobile</span>-->
+                    <input type="text" name="mobile" placeholder="Mobile" ng-model="vm.user.mobile" required pattern="[0-9]{10}">
+                    <ng-messages ng-if="form.mobile.$dirty" for="form.mobile.$error" ng-messages-include="common/form.validation.html" class="text-error">
+                        <ng-message when="pattern"><p>Enter 10 digit valid mobile number</p></ng-message>
+                    </ng-messages>
+                </label>
+
+                <label class="item item-borderless item-light">
+                    <!--<span class="input-label">Address</span>-->
+                    <textarea name="address" placeholder="Address" ng-model="vm.user.address" rows="3" required minlength="20"></textarea>
+                    <ng-messages ng-if="form.address.$dirty" for="form.address.$error" ng-messages-include="common/form.validation.html" class="text-error"></ng-messages>
+                </label>
+
+                <label class="item item-borderless item-light">
+                    <!--<span class="input-label">City</span>-->
+                    <input type="text" name="city" placeholder="City" ng-model="vm.user.city" required>
+                    <ng-messages ng-if="form.city.$dirty" for="form.city.$error" ng-messages-include="common/form.validation.html" class="text-error"></ng-messages>
+                </label>
+
+                <label class="item item-borderless item-light">
+                    <!--<span class="input-label">Zipcode/Pincode</span>-->
+                    <input type="text" name="zipcode" placeholder="Zipcode/Pincode" ng-model="vm.user.zipcode" required pattern="[0-9]{6}">
+                    <ng-messages ng-if="form.zipcode.$dirty" for="form.zipcode.$error" ng-messages-include="common/form.validation.html" class="text-error">
+                        <ng-message when="pattern"><p>Enter valid zipcode</p></ng-message>
+                    </ng-messages>
                 </label>
 
                 <label class="item item-borderless">
-                    <button class="button button-block button-outline button-balanced" ng-click="vm.register()">Register</button>
+                    <button class="button button-block button-outline button-balanced">Register</button>
                 </label>
-            </div>
+
+            </form>
+
+        </div>
     </ion-content>
 </ion-modal-view>

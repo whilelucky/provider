@@ -1,0 +1,22 @@
+<ion-popover-view>
+    <ion-content>
+        <div class="list">
+            <div class="item item-icon-left" ng-click="vm.filterLabourType({id: '', icon: 'ion-android-funnel'})">
+                <i class=""></i>
+                All Services
+            </div>
+            <div class="item item-icon-left" ng-repeat="labourType in vm.labourTypeList" ng-click="vm.filterLabourType(labourType)">
+                <i class="icon {{labourType.icon}}"></i>
+                {{labourType.name}}
+            </div>
+            <div class="item item-icon-left">
+                <i class="icon ion-ionic"></i>
+                Example
+            </div>
+            <div class="item item-icon-left">
+                <i class="icon ion-ionic"></i>
+                Example
+            </div>
+        </div>
+    </ion-content>
+</ion-popover-view>

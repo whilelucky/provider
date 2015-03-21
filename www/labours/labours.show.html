@@ -1,0 +1,31 @@
+<ion-view view-title="Service Details">
+    <ion-content has-bouncing="true">
+
+        <div class="list list-inset item-text-wrap">
+
+            <labour-details data="vm.labour" class="item item-light item-text-wrap labour-details"></labour-details>
+
+            <div class="item item-image">
+                <ion-slide-box does-continue="true">
+                    <ion-slide>
+                        <img ng-src="https://maps.googleapis.com/maps/api/staticmap?markers=color:0x1abc9c|{{vm.user.gps_latitude}},{{vm.user.gps_longitude}}&markers=color:0x34495e|{{vm.labour.gps_latitude}},{{vm.labour.gps_longitude}}&size=400x300" alt=""/>
+                    </ion-slide>
+                    <ion-slide ng-repeat="labourImage in vm.labour.images">
+                        <img ng-src="http://provider.creativevortex.in/public/uploads/images/{{labourImage.image}}">
+                    </ion-slide>
+                </ion-slide-box>
+            </div>
+
+        </div>
+
+        <div class="list list-inset">
+            <div class="button-bar">
+                <button ng-click="vm.sendRequest()" class="button button-dark icon-left ion-paper-airplane">Request</button>
+                <button ng-click="vm.showReviewForm()" class="button button-balanced icon-left ion-chatboxes">Write Review</button>
+            </div>
+        </div>
+
+        <ng-include src="'reviews/reviews.html'"></ng-include>
+
+    </ion-content>
+</ion-view>

@@ -4,10 +4,11 @@
     angular.module('provider', [
         'ionic',
         'ngCordova',
+        'restangular',
         'LocalStorageModule',
-        'toastr',
         'angular-loading-bar',
-        'restangular'
+        'toastr',
+        'ngMessages'
     ]);
 
     angular.module('provider')

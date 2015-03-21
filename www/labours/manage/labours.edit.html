@@ -1,0 +1,53 @@
+<ion-view view-title="Edit Service">
+
+    <ion-content has-bouncing="true">
+
+        <div class="list">
+
+            <gps-pos-finder data="vm.labour" get-gps-position="vm.getGpsPosition()"></gps-pos-finder>
+
+            <label class="item item-light item-input item-select">
+                <span class="input-label">Service Type</span>
+                <select ng-model="vm.labour.service_type_id" ng-options="labourType.id as labourType.name for labourType in vm.labourTypeList" value="vm.labour.service_type_id">
+                    <option value="">Choose</option>
+                </select>
+            </label>
+
+            <label class="item item-light item-input item-floating-label">
+                <span class="input-label">Service Name</span>
+                <input type="text" placeholder="Service Name" ng-model="vm.labour.name">
+            </label>
+
+            <label class="item item-light item-input item-floating-label">
+                <span class="input-label">Mobile</span>
+                <input type="text" placeholder="Mobile" ng-model="vm.labour.mobile">
+            </label>
+
+            <label class="item item-light item-input item-floating-label">
+                <span class="input-label">Landline</span>
+                <input type="text" placeholder="Landline" ng-model="vm.labour.landline">
+            </label>
+
+            <label class="item item-light item-input item-floating-label">
+                <span class="input-label">Address</span>
+                <textarea placeholder="Address" ng-model="vm.labour.address" rows="3"></textarea>
+            </label>
+
+            <label class="item item-light item-input item-floating-label">
+                <span class="input-label">City</span>
+                <input type="text" placeholder="City" ng-model="vm.labour.city">
+            </label>
+
+            <label class="item item-light item-input item-floating-label">
+                <span class="input-label">Zipcode/Pincode</span>
+                <input type="text" placeholder="Zipcode/Pincode" ng-model="vm.labour.zipcode">
+            </label>
+
+            <label class="item">
+                <button class="button button-block button-outline button-dark" ng-click="vm.update()">Update</button>
+            </label>
+
+        </div>
+
+    </ion-content>
+</ion-view>

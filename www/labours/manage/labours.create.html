@@ -1,0 +1,70 @@
+<ion-view view-title="Provide a Service">
+
+    <ion-content has-bouncing="true">
+
+        <div class="list">
+
+            <gps-pos-finder data="vm.newLabour" get-gps-position="vm.getGpsPosition()"></gps-pos-finder>
+
+            <form name="form">
+
+                <label class="item item-light item-input item-select">
+                    <span class="input-label">Service Type</span>
+                    <select name="service_type" ng-model="vm.newLabour.service_type_id" ng-options="labourType.id as labourType.name for labourType in vm.labourTypeList" required>
+                        <option value="">Choose</option>
+                    </select>
+                    <ng-messages ng-if="form.service_type.$dirty" for="form.service_type.$error" ng-messages-include="common/form.validation.html" class="text-error"></ng-messages>
+                </label>
+
+                <label class="item item-light item-input item-floating-label">
+                    <span class="input-label">Service Name</span>
+                    <input type="text" name="name" placeholder="Service Name" ng-model="vm.newLabour.name" required>
+                    <ng-messages ng-if="form.name.$dirty" for="form.name.$error" ng-messages-include="common/form.validation.html" class="text-error"></ng-messages>
+                </label>
+
+                <label class="item item-light item-input item-floating-label">
+                    <span class="input-label">Mobile</span>
+                    <input type="text" name="mobile" placeholder="Mobile" ng-model="vm.newLabour.mobile" required pattern="[0-9]{10}">
+                    <ng-messages ng-if="form.mobile.$dirty" for="form.mobile.$error" ng-messages-include="common/form.validation.html" class="text-error">
+                        <ng-message when="pattern"><p>Enter 10 digit valid mobile number</p></ng-message>
+                    </ng-messages>
+                </label>
+
+                <label class="item item-light item-input item-floating-label">
+                    <span class="input-label">Landline</span>
+                    <input type="text" name="landline" placeholder="Landline" ng-model="vm.newLabour.landline" pattern="[0-9]{11}">
+                    <ng-messages ng-if="form.landline.$dirty" for="form.landline.$error" ng-messages-include="common/form.validation.html" class="text-error">
+                        <ng-message when="pattern"><p>Enter 11 digit valid landline number with STD</p></ng-message>
+                    </ng-messages>
+                </label>
+
+                <label class="item item-light item-input item-floating-label">
+                    <span class="input-label">Address</span>
+                    <textarea name="address" placeholder="Address" ng-model="vm.newLabour.address" rows="3" required minlength="20"></textarea>
+                    <ng-messages ng-if="form.address.$dirty" for="form.address.$error" ng-messages-include="common/form.validation.html" class="text-error"></ng-messages>
+                </label>
+
+                <label class="item item-light item-input item-floating-label">
+                    <span class="input-label">City</span>
+                    <input type="text" name="city" placeholder="City" ng-model="vm.newLabour.city" required>
+                    <ng-messages ng-if="form.city.$dirty" for="form.city.$error" ng-messages-include="common/form.validation.html" class="text-error"></ng-messages>
+                </label>
+
+                <label class="item item-light item-input item-floating-label">
+                    <span class="input-label">Zipcode/Pincode</span>
+                    <input type="text" name="zipcode" placeholder="Zipcode/Pincode" ng-model="vm.newLabour.zipcode" required pattern="[0-9]{6}">
+                    <ng-messages ng-if="form.zipcode.$dirty" for="form.zipcode.$error" ng-messages-include="common/form.validation.html" class="text-error">
+                        <ng-message when="pattern"><p>Enter valid zipcode</p></ng-message>
+                    </ng-messages>
+                </label>
+
+                <label class="item">
+                    <button class="button button-block button-outline button-dark" ng-click="vm.submit()">Submit</button>
+                </label>
+
+            </form>
+
+        </div>
+
+    </ion-content>
+</ion-view>

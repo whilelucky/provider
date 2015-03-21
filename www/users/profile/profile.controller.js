@@ -1,10 +1,10 @@
-(function() {
+(function () {
     'use strict';
 
     angular.module('provider')
         .controller('ProfileController', ProfileController);
 
-    function ProfileController ($scope, $state, AuthenticationService, CordovaService) {
+    function ProfileController($scope, $state, AuthenticationService, CordovaService) {
 
         var vm = this;
 
@@ -15,27 +15,27 @@
 
 //        activate();
 
-        function activate () {
+        function activate() {
             vm.user = AuthenticationService.user;
         }
 
-        $scope.$on('$ionicView.enter', function() {
+        $scope.$on('$ionicView.enter', function () {
             activate();
         });
 
-        function getGpsPosition () {
+        function getGpsPosition() {
             CordovaService.getGpsPosition()
-                .then(function(position) {
+                .then(function (position) {
                     vm.user.gps_latitude = position.coords.latitude;
                     vm.user.gps_longitude = position.coords.longitude;
                 });
         }
 
-        function save () {
+        function save() {
             AuthenticationService.update(vm.user);
         }
 
-        function logout () {
+        function logout() {
             AuthenticationService.logout()
                 .then(function () {
                     $state.go('login');

@@ -20,6 +20,7 @@
     <script src="lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
     <script src="lib/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
     <script src="lib/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="lib/angular-messages/angular-messages.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
@@ -28,27 +29,27 @@
     <!-- app -->
     <script src="app.js"></script>
     <script src="app.config.js"></script>
-    <script src="app.filters.js"></script>
-    <script src="app.directives.js"></script>
+    <script src="common/common.filters.js"></script>
+    <script src="common/common.directives.js"></script>
 
     <!-- controllers -->
     <script src="auth/authentication.controller.js"></script>
-    <script src="explore/services.list.controller.js"></script>
-    <script src="services/services.show.controller.js"></script>
-    <script src="services/manage/services.create.edit.controller.js"></script>
-    <script src="services/images/services.image.controller.js"></script>
-    <script src="services/manage/my.services.controller.js"></script>
+    <script src="explore/labours.list.controller.js"></script>
+    <script src="labours/labours.show.controller.js"></script>
+    <script src="labours/manage/labours.create.edit.controller.js"></script>
+    <script src="labours/images/labours.image.controller.js"></script>
+    <script src="labours/manage/my.labours.controller.js"></script>
     <script src="requests/requests.controller.js"></script>
     <script src="users/profile/profile.controller.js"></script>
 
     <!-- services -->
     <script src="auth/authentication.service.js"></script>
     <script src="requests/requests.service.js"></script>
-    <script src="services/services.service.js"></script>
-    <script src="services/images/images.service.js"></script>
+    <script src="labours/labours.service.js"></script>
+    <script src="labours/images/images.service.js"></script>
     <script src="reviews/reviews.service.js"></script>
-    <script src="cordova.service.js"></script>
-    <script src="alerts.service.js"></script>
+    <script src="common/cordova.service.js"></script>
+    <script src="common/alerts.service.js"></script>
 
 </head>
 

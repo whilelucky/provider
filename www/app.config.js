@@ -7,8 +7,8 @@
 
         //----Configurations-----//
 
-//        RestangularProvider.setBaseUrl('http://localhost/provider-backend/public');
-        RestangularProvider.setBaseUrl('http://provider.creativevortex.in/public');
+        RestangularProvider.setBaseUrl('http://localhost/provider-backend/public');
+//        RestangularProvider.setBaseUrl('http://provider.creativevortex.in/public');
 
         cfpLoadingBarProvider.includeSpinner = false;
 
@@ -35,50 +35,50 @@
 
             .state('app.explore', {
                 url: '/explore',
-                templateUrl: 'explore/services.list.html',
-                controller: 'ServicesListController as vm'
+                templateUrl: 'explore/labours.list.html',
+                controller: 'LaboursListController as vm'
             })
 
-            .state('app.services', {
-                url: '/services',
+            .state('app.labours', {
+                url: '/labours',
                 abstract: true,
                 template: '<ion-nav-view></ion-nav-view>'
             })
 
-            .state('app.services.my-services', {
-                url: '/my-services',
-                templateUrl: 'services/manage/my.services.html',
-                controller: 'MyServicesController as vm'
+            .state('app.labours.my-labours', {
+                url: '/my-labours',
+                templateUrl: 'labours/manage/my.labours.html',
+                controller: 'MyLaboursController as vm'
             })
 
-            .state('app.services.create', {
+            .state('app.labours.create', {
                 url: '/create',
-                templateUrl: 'services/manage/services.create.html',
-                controller: 'ServicesCreateEditController as vm'
+                templateUrl: 'labours/manage/labours.create.html',
+                controller: 'LaboursCreateEditController as vm'
             })
 
-            .state('app.services.edit', {
+            .state('app.labours.edit', {
                 url: '/edit',
-                templateUrl: 'services/manage/services.edit.html',
-                controller: 'ServicesCreateEditController as vm'
+                templateUrl: 'labours/manage/labours.edit.html',
+                controller: 'LaboursCreateEditController as vm'
             })
 
-            .state('app.services.images', {
+            .state('app.labours.images', {
                 url: '/images',
-                templateUrl: 'services/images/services.images.html',
-                controller: 'ServicesImageController as vm'
+                templateUrl: 'labours/images/labours.images.html',
+                controller: 'LaboursImageController as vm'
             })
 
-            .state('app.services.certificates', {
+            .state('app.labours.certificates', {
                 url: '/certificates',
-                templateUrl: 'services/images/services.certificates.html',
-                controller: 'ServicesImageController as vm'
+                templateUrl: 'labours/images/labours.certificates.html',
+                controller: 'LaboursImageController as vm'
             })
 
-            .state('app.services.show', {
+            .state('app.labours.show', {
                 url: '/:id',
-                templateUrl: 'services/services.show.html',
-                controller: 'ServicesShowController as vm'
+                templateUrl: 'labours/labours.show.html',
+                controller: 'LaboursShowController as vm'
             })
 
             .state('app.requests', {

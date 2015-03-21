@@ -1,0 +1,14 @@
+<ion-view view-title="My Services">
+
+    <ion-nav-buttons side="right">
+        <button ui-sref="app.labours.create" class="button button-clear button-light icon ion-android-add"></button>
+    </ion-nav-buttons>
+
+    <ion-content has-bouncing="true">
+
+        <div class="list list-inset" ng-repeat="labour in vm.myLaboursList">
+            <labour-details data="labour" class="item item-light labour-details" ng-click="vm.showOptions(labour)"></labour-details>
+        </div>
+
+    </ion-content>
+</ion-view>

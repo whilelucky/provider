@@ -1,0 +1,17 @@
+<ion-view view-title="Images">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear button-light icon ion-android-add" ng-click="vm.pickImages()"></button>
+    </ion-nav-buttons>
+
+    <ion-content has-bouncing="true">
+
+        <div class="list">
+
+            <div class="item item-image labour-images" ng-repeat="labourImage in vm.imagesList" ng-click="vm.showImageOptions(labourImage)">
+                <img ng-src="http://provider.creativevortex.in/public/uploads/images/{{labourImage.image}}">
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

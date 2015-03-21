@@ -47,7 +47,7 @@
         }
 
         function create(user) {
-            if (user.password !== user.repeat_password) {
+            if (user.password !== user.confirm_password) {
                 AlertsService.error('Password mismatch');
                 throw {};
             }
