@@ -7,8 +7,8 @@
 
         //----Configurations-----//
 
-        RestangularProvider.setBaseUrl('http://localhost/provider-backend/public');
-//        RestangularProvider.setBaseUrl('http://provider.creativevortex.in/public');
+        // RestangularProvider.setBaseUrl('http://localhost/provider-backend/public');
+       RestangularProvider.setBaseUrl('http://provider.creativevortex.in/public');
 
         cfpLoadingBarProvider.includeSpinner = false;
 
